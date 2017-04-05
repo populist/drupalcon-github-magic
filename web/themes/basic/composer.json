@@ -1,0 +1,46 @@
+{
+  "name": "drupal/basic",
+  "description": "HTML5, SASS, Responsive grid starter theme.",
+  "type": "drupal-theme",
+  "homepage": "http://drupal.org/project/basic",
+  "authors": [
+    {
+      "name": "Steve Krueger",
+      "email": "steve@thejibe.com",
+      "homepage": "http://thejibe.com",
+      "role": "Maintainer"
+    },
+    {
+      "name": "Joël Pittet",
+      "email": "joel@pittet.ca",
+      "homepage": "https://www.drupal.org/u/joelpittet",
+      "role": "Maintainer"
+    },
+    {
+      "name": "Leah Wagner",
+      "email": "leah@thejibe.com",
+      "homepage": "http://thejibe.com",
+      "role": "Maintainer"
+    },
+    {
+      "name": "Catherine Winters",
+      "email": "catherine@catherinewinters.com",
+      "homepage": "http://www.catherinewinters.com",
+      "role": "Maintainer"
+    },
+    {
+      "name": "Johannes Schmidt",
+      "email": "mail@2tabs.com",
+      "homepage": "http://2tabs.com",
+      "role": "Maintainer"
+    }
+  ],
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/basic",
+    "irc": "irc://irc.freenode.org/drupal-contribute",
+    "source": "http://cgit.drupalcode.org/basic"
+  },
+  "license": "GPL-2.0+",
+  "minimum-stability": "dev",
+  "require": {}
+}
