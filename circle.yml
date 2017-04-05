@@ -46,10 +46,9 @@ dependencies:
     - composer create-project -n -d ~/.terminus/plugins pantheon-systems/terminus-build-tools-plugin:^1
     - composer create-project -n -d ~/.terminus/plugins pantheon-systems/terminus-secrets-plugin:^1
     # Setup NPM for SASS Compiling for Theme
-    - cd web/themes/basic
-    - npm install
-    - npm install -g grunt-cli
-    - grunt sass 
+    - npm install --prefix web/themes/basic
+    - npm install --prefix web/themes/basic -g grunt-cli
+    - grunt --gruntfile web/themes/basic/Gruntfile.js sass 
   post:
     # Login with Terminus
     - terminus auth:login -n --machine-token="$TERMINUS_TOKEN"
