@@ -32,7 +32,8 @@ dependencies:
     - ~/.composer/cache
   pre:
     # Notify Slack It Is All Happening
-    - php -f scripts/slack/slack_notify.php circle "Git Commit to GitHub Detected. Kicking off CircleCI Build Process."
+    - php -f scripts/slack/slack_notify.php circle "Code change detected on https://github.com/populist/drupalcon-github-magic."
+    - php -f scripts/slack/slack_notify.php circle "Kicking off CircleCI build process _#${CIRCLE_BUILD_NUM}_ in environment _${CIRCLE_ENV}_." TRUE
     # Setup the Proper Git Credentials
     - composer config --global github-oauth.github.com $GITHUB_TOKEN
     - git config --global user.email "$GIT_EMAIL"
@@ -59,10 +60,12 @@ dependencies:
     # Delete old CI environment
     - terminus build-env:delete:ci -n "$TERMINUS_SITE" --keep=2 --yes
     # Run Composer to Build the Asssets
+    - php -f scripts/slack/slack_notify.php composer "Assembling Site Assets with Composer to Create Build Artifact."
     - composer -n build-assets
     # Wake the Development Site
     - terminus env:wake -n "$TERMINUS_SITE.dev"
     # Setup the CI Testing Environment
+    - php -f scripts/slack/slack_notify.php pantheon "Creating a Multidev Testing Environment Here - $TERMINUS_ENV"
     - terminus build-env:create -n "$TERMINUS_SITE.dev" "$TERMINUS_ENV" --yes --clone-content --db-only --notify="$NOTIFY"
     # Import Configuration Into Site
     - terminus drush "$TERMINUS_SITE.$TERMINUS_ENV" -- config-import --yes
