@@ -82,6 +82,7 @@ test:
     - php -f scripts/slack/slack_notify.php behat "Kicking off Behat testing..."
     - php -f scripts/slack/slack_notify.php behat "Test One - TODO" TRUE
     - php -f scripts/slack/slack_notify.php behat "Test TWO - TODO" TRUE
+    - php -f scripts/slack/slack_notify.php behat "All Behat tests passed."
     # - run-behat
 
 deployment:
@@ -89,6 +90,8 @@ deployment:
     branch: master
     commands:
       # Merge the Code from the Testing Environment to Master
+      - php -f scripts/slack/slack_notify.php pantheon "Setting up Pantheon Dev environment..."
+      - php -f scripts/slack/slack_notify.php pantheon "Pushing build artifact to Dev environment" TRUE
       - terminus build-env:merge -n "$TERMINUS_SITE.$TERMINUS_ENV" --yes
       # Import Configuration Into Dev Site
       # - terminus drush "$TERMINUS_SITE.dev" -- config-import --yes
