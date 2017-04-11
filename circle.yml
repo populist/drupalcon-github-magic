@@ -28,6 +28,8 @@ machine:
 dependencies:
   cache_directories:
     - ~/.composer/cache
+    - ~/web/themes/basic/node_modules
+    - ~/web/themes/basic/lib/node_modules
     - ~/nvm/versions/node/5.3/bin
     - ~/nvm/versions/node/5.3/lib/node_modules
   pre:
@@ -66,7 +68,7 @@ dependencies:
     - php -f scripts/slack/slack_notify.php pantheon "Creating a Multidev Testing Environment Here - $TERMINUS_ENV"
     - terminus build-env:create -n "$TERMINUS_SITE.dev" "$TERMINUS_ENV" --yes --clone-content --db-only 
     # Import Configuration Into Site
-    - terminus drush "$TERMINUS_SITE.$TERMINUS_ENV" -- config-import --yes
+    # - terminus drush "$TERMINUS_SITE.$TERMINUS_ENV" -- config-import --yes
 test:
   override:
     - php -f scripts/slack/slack_notify.php behat "Running Behat Tests"
@@ -80,4 +82,4 @@ deployment:
       # Merge the Code from the Testing Environment to Master
       - terminus build-env:merge -n "$TERMINUS_SITE.$TERMINUS_ENV" --yes
       # Import Configuration Into Dev Site
-      - terminus drush "$TERMINUS_SITE.dev" -- config-import --yes
+      # - terminus drush "$TERMINUS_SITE.dev" -- config-import --yes
