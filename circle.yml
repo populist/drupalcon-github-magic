@@ -34,9 +34,7 @@ dependencies:
     - ~/drupalcon-github-magic/web/themes/basic/lib/node_modules
   pre:
     # Notify Slack It Is All Happening
-    - php -f scripts/slack/slack_notify.php circle "Code change detected on https://github.com/populist/drupalcon-github-magic."
-    - php -f scripts/slack/slack_notify.php circle "Kicking off CircleCI build process _#${CIRCLE_BUILD_NUM}_." TRUE
-    - php -f scripts/slack/slack_notify.php circle "See https://circleci.com/gh/populist/drupalcon-github-magic/${CIRCLE_BUILD_NUM}." TRUE
+    - php -f scripts/slack/slack_notify.php circle "${CIRCLE_BUILD_NUM}"
     # Setup the Proper Git Credentials
     - composer config --global github-oauth.github.com $GITHUB_TOKEN
     - git config --global user.email "$GIT_EMAIL"
@@ -49,48 +47,41 @@ dependencies:
     - mkdir -p ~/.terminus/plugins
     - composer create-project -n -d ~/.terminus/plugins pantheon-systems/terminus-build-tools-plugin:^1
     # Setup NPM for SASS Compiling for Theme
-    - php -f scripts/slack/slack_notify.php grunt "Running Grunt Javascript Task Runner..."
-    - php -f scripts/slack/slack_notify.php grunt "Compiling SASS in directory _web/themes/basic_" TRUE 
-    - php -f scripts/slack/slack_notify.php grunt "CSS Generated - _web/themes/basic/colors.css_" TRUE
+    - php -f scripts/slack/slack_notify.php grunt 
     - npm install --prefix web/themes/basic
     - npm install --prefix web/themes/basic -g grunt-cli
     - grunt --gruntfile web/themes/basic/Gruntfile.js sass 
   post:
     # Run Composer to Build the Asssets
-    - php -f scripts/slack/slack_notify.php composer "Running Composer to create build artifact..."
-    - php -f scripts/slack/slack_notify.php composer "Composer Build Step Report - TODO" TRUE
+    - php -f scripts/slack/slack_notify.php composer 
     - composer -n build-assets
     # Login with Terminus
-    - php -f scripts/slack/slack_notify.php terminus "Authenticating to Pantheon with Terminus machine token for user _matt@pantheon.me_."
-    - php -f scripts/slack/slack_notify.php terminus "Version - `terminus --version`" TRUE
+    - php -f scripts/slack/slack_notify.php terminus 
     - terminus auth:login -n --machine-token="$TERMINUS_TOKEN"
     # Delete old CI environment
     # - terminus build-env:delete:ci -n "$TERMINUS_SITE" --keep=2 --yes
     # Wake the Development Site
     - terminus env:wake -n "$TERMINUS_SITE.dev"
     # Setup the CI Testing Environment
-    - php -f scripts/slack/slack_notify.php pantheon "Setting up Pantheon Multidev testing environment..."
-    - php -f scripts/slack/slack_notify.php pantheon "Using existing Multidev environment - $TERMINUS_ENV" TRUE
-    - php -f scripts/slack/slack_notify.php pantheon "Pushing build artifact to Multidev environment" TRUE
+    - php -f scripts/slack/slack_notify.php pantheon_multidev
     - terminus build-env:push-code "$TERMINUS_SITE.$TERMINUS_ENV" --yes
+    - php -f scripts/slack/slack_notify.php pantheon_multidev_finished
     # Import Configuration Into Site
     # - terminus drush "$TERMINUS_SITE.$TERMINUS_ENV" -- config-import --yes
 test:
   override:
     # Run Behat Testing
-    - php -f scripts/slack/slack_notify.php behat "Kicking off Behat testing..."
-    - php -f scripts/slack/slack_notify.php behat "Test One - TODO" TRUE
-    - php -f scripts/slack/slack_notify.php behat "Test TWO - TODO" TRUE
-    - php -f scripts/slack/slack_notify.php behat "All Behat tests passed."
+    - php -f scripts/slack/slack_notify.php behat 
     # - run-behat
+    - php -f scripts/slack/slack_notify.php behat_finished
 
 deployment:
   build-assets:
     branch: master
     commands:
       # Merge the Code from the Testing Environment to Master
-      - php -f scripts/slack/slack_notify.php pantheon "Setting up Pantheon Dev environment..."
-      - php -f scripts/slack/slack_notify.php pantheon "Pushing build artifact to Dev environment" TRUE
+      - php -f scripts/slack/slack_notify.php pantheon_dev
       - terminus build-env:merge -n "$TERMINUS_SITE.$TERMINUS_ENV" --yes
+      - php -f scripts/slack/slack_notify.php pantheon_dev_finished
       # Import Configuration Into Dev Site
       # - terminus drush "$TERMINUS_SITE.dev" -- config-import --yes
