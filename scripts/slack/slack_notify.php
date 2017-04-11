@@ -5,8 +5,6 @@ require_once( dirname( __FILE__ ) . '/slack_helper.php' );
 
 // Assemble the Arguments
 $slack_type = $argv[1]; // Argument One
-$slack_message = $argv[2]; // Argument Two
-$slack_message_type = $argv[3]; // Argument Three
 
 switch($slack_type) {
   case 'behat': 

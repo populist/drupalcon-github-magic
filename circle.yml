@@ -13,15 +13,8 @@ machine:
     # TERMINUS_TOKEN: The Pantheon machine token
     # GITHUB_TOKEN:   The GitHub personal access token
     # GIT_EMAIL:      The email address to use when making commits
+    # SLACK_URL:      The Slack Endpoint for sending notifications
     #
-    # TEST_SITE_NAME: The name of the test site to provide when installing.
-    # ADMIN_PASSWORD: The admin password to use when installing.
-    # ADMIN_EMAIL:    The email address to give the admin when installing.
-    #
-    # BRANCH: $(echo $CIRCLE_BRANCH | grep -v '^\(master\|[0-9]\+.x\)$')
-    # PR_ENV: ${BRANCH:+pr-$BRANCH}
-    # CIRCLE_ENV: ci-$CIRCLE_BUILD_NUM
-    # DEFAULT_ENV: $(echo ${PR_ENV:-$CIRCLE_ENV} | cut -c -11 | sed 's/-$//')
     DEFAULT_ENV: ci-test
     TERMINUS_ENV: ${TERMINUS_ENV:-$DEFAULT_ENV}
     PATH: $PATH:~/.composer/vendor/bin:~/.config/composer/vendor/bin:tests/scripts
@@ -58,8 +51,6 @@ dependencies:
     # Login with Terminus
     - php -f scripts/slack/slack_notify.php terminus 
     - terminus auth:login -n --machine-token="$TERMINUS_TOKEN"
-    # Delete old CI environment
-    # - terminus build-env:delete:ci -n "$TERMINUS_SITE" --keep=2 --yes
     # Wake the Development Site
     - terminus env:wake -n "$TERMINUS_SITE.dev"
     # Setup the CI Testing Environment
