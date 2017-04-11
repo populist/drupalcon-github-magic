@@ -36,7 +36,7 @@ switch($slack_type) {
     break;
   case 'pantheon':
     $slack_agent = 'Pantheon';
-    $slack_icon - 'http://live-drupalcon-nola-demo.pantheonsite.io/sites/default/files/icons/pantheon.png';
+    $slack_icon = 'http://live-drupalcon-nola-demo.pantheonsite.io/sites/default/files/icons/pantheon.png';
     $slack_color = '#EFD01B';
     break;
 }
