@@ -35,7 +35,8 @@ dependencies:
   pre:
     # Notify Slack It Is All Happening
     - php -f scripts/slack/slack_notify.php circle "Code change detected on https://github.com/populist/drupalcon-github-magic."
-    - php -f scripts/slack/slack_notify.php circle "Kicking off CircleCI build process _#${CIRCLE_BUILD_NUM}_ in environment _${CIRCLE_ENV}_." TRUE
+    - php -f scripts/slack/slack_notify.php circle "Kicking off CircleCI build process _#${CIRCLE_BUILD_NUM}_." TRUE
+    - php -f scripts/slack/slack_notify.php circle "See https://circleci.com/gh/populist/drupalcon-github-magic/${CIRCLE_BUILD_NUM}." TRUE
     # Setup the Proper Git Credentials
     - composer config --global github-oauth.github.com $GITHUB_TOKEN
     - git config --global user.email "$GIT_EMAIL"
@@ -48,20 +49,22 @@ dependencies:
     - mkdir -p ~/.terminus/plugins
     - composer create-project -n -d ~/.terminus/plugins pantheon-systems/terminus-build-tools-plugin:^1
     # Setup NPM for SASS Compiling for Theme
-    - php -f scripts/slack/slack_notify.php grunt "Turning SASS into CSS with Grunt - The JavaScript Task Runner."
+    - php -f scripts/slack/slack_notify.php grunt "Running Grunt Javascript Task Runner..."
+    - php -f scripts/slack/slack_notify.php grunt "Compiling SASS in directory _/web/themes/basic_" TRUE 
     - npm install --prefix web/themes/basic
     - npm install --prefix web/themes/basic -g grunt-cli
     - grunt --gruntfile web/themes/basic/Gruntfile.js sass 
   post:
+    # Run Composer to Build the Asssets
+    - php -f scripts/slack/slack_notify.php composer "Running Composer to create build artifact..."
+    - php -f scripts/slack/slack_notify.php composer "Composer Build Step Report: TODO" TRUE
+    - composer -n build-assets
     # Login with Terminus
-    - php -f scripts/slack/slack_notify.php terminus "Logging into Pantheon with Terminus for matt@pantheon.me with a _Machine Token_."
-    - php -f scripts/slack/slack_notify.php terminus "Using `terminus --version` for all operations."
+    - php -f scripts/slack/slack_notify.php terminus "Authenticating to Pantheon with Terminus machine token for user _matt@pantheon.me_."
+    - php -f scripts/slack/slack_notify.php terminus "Version - `terminus --version`" TRUE
     - terminus auth:login -n --machine-token="$TERMINUS_TOKEN"
     # Delete old CI environment
     # - terminus build-env:delete:ci -n "$TERMINUS_SITE" --keep=2 --yes
-    # Run Composer to Build the Asssets
-    - php -f scripts/slack/slack_notify.php composer "Assembling Site Assets with Composer to Create Build Artifact."
-    - composer -n build-assets
     # Wake the Development Site
     - terminus env:wake -n "$TERMINUS_SITE.dev"
     # Setup the CI Testing Environment
@@ -76,8 +79,8 @@ test:
   override:
     # Run Behat Testing
     - php -f scripts/slack/slack_notify.php behat "Kicking off Behat testing..."
-    - php -f scripts/slack/slack_notify.php behat "Test One: TODO" TRUE
-    - php -f scripts/slack/slack_notify.php behat "Test TWO: TODO" TRUE
+    - php -f scripts/slack/slack_notify.php behat "Test One - TODO" TRUE
+    - php -f scripts/slack/slack_notify.php behat "Test TWO - TODO" TRUE
     # - run-behat
 
 deployment:
