@@ -47,7 +47,7 @@ function _slack_tell( $message, $slack_channel_name, $slack_user_name, $slack_ic
  */
 function _get_secrets( $requiredKeys, $defaults ) {
   if (getenv('SLACK_URL')) {
-    return array('slack_url' => getenv('SLACK_URL'));a
+    return array('slack_url' => getenv('SLACK_URL'));
   }
 
 	$secretsFile = $_SERVER['HOME'] . '/files/private/secrets.json';
