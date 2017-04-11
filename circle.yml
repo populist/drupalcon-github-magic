@@ -54,6 +54,7 @@ dependencies:
     - grunt --gruntfile web/themes/basic/Gruntfile.js sass 
   post:
     # Login with Terminus
+    - php -f scripts/slack/slack_notify.php terminus "Logging into Pantheon with Terminus."
     - terminus auth:login -n --machine-token="$TERMINUS_TOKEN"
     # Delete old CI environment
     - terminus build-env:delete:ci -n "$TERMINUS_SITE" --keep=2 --yes

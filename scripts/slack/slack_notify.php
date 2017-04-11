@@ -28,6 +28,11 @@ switch($slack_type) {
     $slack_icon = 'http://live-drupalcon-nola-demo.pantheonsite.io/sites/default/files/icons/grunt.png';
     $slack_color = '#e48632';
     break;
+  case 'terminus':
+    $slack_agent = 'Terminus';
+    $slack_icon = 'http://live-drupalcon-nola-demo.pantheonsite.io/sites/default/files/icons/terminus.png';
+    $slack_color = '#1ec503';
+    break;
 }
 
 _slack_tell( $slack_message, 'drupalcon', $slack_agent, $slack_icon, $slack_color);
