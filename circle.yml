@@ -72,7 +72,7 @@ dependencies:
     - php -f scripts/slack/slack_notify.php pantheon "Setting up Pantheon Multidev testing environment..."
     - php -f scripts/slack/slack_notify.php pantheon "Using existing Multidev environment - $TERMINUS_ENV" TRUE
     - php -f scripts/slack/slack_notify.php pantheon "Pushing build artifact to Multidev environment" TRUE
-    - terminus build-env:push-code "$TERMINUS_ENV" --yes
+    - terminus build-env:push-code "$TERMINUS_SITE.$TERMINUS_ENV" --yes
     # Import Configuration Into Site
     # - terminus drush "$TERMINUS_SITE.$TERMINUS_ENV" -- config-import --yes
 test:
