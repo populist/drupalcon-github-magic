@@ -16,12 +16,17 @@ switch($slack_type) {
   case 'composer':
     $slack_agent = 'Composer';
     $slack_icon = 'http://live-drupalcon-nola-demo.pantheonsite.io/sites/default/files/icons/composer.png';
-    $slack_color = '#0000ff';
+    $slack_color = '#000080';
     break;
   case 'circle':
     $slack_agent = 'CircleCI';
     $slack_icon = 'http://live-drupalcon-nola-demo.pantheonsite.io/sites/default/files/icons/circle.png';
-    $slack_color = '#EE2E24';
+    $slack_color = '#229922';
+    break;
+  case 'grunt':
+    $slack_agent = 'Grunt JS Task Runner';
+    $slack_icon = 'http://live-drupalcon-nola-demo.pantheonsite.io/sites/default/files/icons/grunt.png';
+    $slack_color = '#e48632';
     break;
 }
 
