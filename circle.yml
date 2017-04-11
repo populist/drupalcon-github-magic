@@ -20,16 +20,16 @@ machine:
     #
     BRANCH: $(echo $CIRCLE_BRANCH | grep -v '^\(master\|[0-9]\+.x\)$')
     PR_ENV: ${BRANCH:+pr-$BRANCH}
-    # CIRCLE_ENV: ci-$CIRCLE_BUILD_NUM
-    CIRCLE_ENV: ci-test
+    CIRCLE_ENV: ci-$CIRCLE_BUILD_NUM
     DEFAULT_ENV: $(echo ${PR_ENV:-$CIRCLE_ENV} | cut -c -11 | sed 's/-$//')
     TERMINUS_ENV: ${TERMINUS_ENV:-$DEFAULT_ENV}
-    NOTIFY: 'scripts/github/add-commit-comment {project} {sha} "Created multidev environment [{site}#{env}]({dashboard-url})." {site-url}'
     PATH: $PATH:~/.composer/vendor/bin:~/.config/composer/vendor/bin:tests/scripts
 
 dependencies:
   cache_directories:
     - ~/.composer/cache
+    - ~/nvm/versions/node/5.3/bin
+    - ~/nvm/versions/node/5.3/lib/node_modules
   pre:
     # Notify Slack It Is All Happening
     - php -f scripts/slack/slack_notify.php circle "Code change detected on https://github.com/populist/drupalcon-github-magic."
@@ -44,10 +44,8 @@ dependencies:
     - composer global require -n "consolidation/cgr"
     - cgr "pantheon-systems/terminus:^1"
     - terminus --version
-    - cgr "drush/drush:~8"
     - mkdir -p ~/.terminus/plugins
     - composer create-project -n -d ~/.terminus/plugins pantheon-systems/terminus-build-tools-plugin:^1
-    - composer create-project -n -d ~/.terminus/plugins pantheon-systems/terminus-secrets-plugin:^1
     # Setup NPM for SASS Compiling for Theme
     - php -f scripts/slack/slack_notify.php grunt "Turning SASS into CSS with Grunt - The JavaScript Task Runner."
     - npm install --prefix web/themes/basic
@@ -66,7 +64,7 @@ dependencies:
     - terminus env:wake -n "$TERMINUS_SITE.dev"
     # Setup the CI Testing Environment
     - php -f scripts/slack/slack_notify.php pantheon "Creating a Multidev Testing Environment Here - $TERMINUS_ENV"
-    - terminus build-env:create -n "$TERMINUS_SITE.dev" "$TERMINUS_ENV" --yes --clone-content --db-only --notify="$NOTIFY"
+    - terminus build-env:create -n "$TERMINUS_SITE.dev" "$TERMINUS_ENV" --yes --clone-content --db-only 
     # Import Configuration Into Site
     - terminus drush "$TERMINUS_SITE.$TERMINUS_ENV" -- config-import --yes
 test:
@@ -74,8 +72,6 @@ test:
     - php -f scripts/slack/slack_notify.php behat "Running Behat Tests"
     # Run Behat Testing
     # - run-behat
-  post:
-    - terminus secrets:set -n "$TERMINUS_SITE.$TERMINUS_ENV" token "$GITHUB_TOKEN" --file='github-secrets.json' --clear --skip-if-empty
 
 deployment:
   build-assets:
@@ -83,7 +79,5 @@ deployment:
     commands:
       # Merge the Code from the Testing Environment to Master
       - terminus build-env:merge -n "$TERMINUS_SITE.$TERMINUS_ENV" --yes
-      # Run UpdateDB on the Master Environment
-      - terminus drush -n $TERMINUS_SITE.dev -- updatedb --yes
       # Import Configuration Into Dev Site
       - terminus drush "$TERMINUS_SITE.dev" -- config-import --yes

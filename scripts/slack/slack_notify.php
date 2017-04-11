@@ -6,6 +6,7 @@ require_once( dirname( __FILE__ ) . '/slack_helper.php' );
 // Assemble the Arguments
 $slack_type = $argv[1]; // Argument One
 $slack_message = $argv[2]; // Argument Two
+$slack_message_type = $argv[3]; // Argument Three
 
 switch($slack_type) {
   case 'behat': 
@@ -33,6 +34,16 @@ switch($slack_type) {
     $slack_icon = 'http://live-drupalcon-nola-demo.pantheonsite.io/sites/default/files/icons/terminus.png';
     $slack_color = '#1ec503';
     break;
+  case 'pantheon':
+    $slack_agent = 'Pantheon';
+    $slack_icon - 'http://live-drupalcon-nola-demo.pantheonsite.io/sites/default/files/icons/pantheon.png';
+    $slack_color = '#EFD01B';
+    break;
 }
 
-_slack_tell( $slack_message, 'drupalcon', $slack_agent, $slack_icon, $slack_color);
+if ($slack_message_type) {
+  $slack_message = array($slack_message);
+  _slack_tell( $slack_message, 'drupalcon', $slack_agent, $slack_icon, $slack_color);
+} else {
+  _slack_tell( $slack_message, 'drupalcon', $slack_agent, $slack_icon, $slack_color);
+}
