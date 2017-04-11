@@ -48,7 +48,7 @@ dependencies:
     - composer create-project -n -d ~/.terminus/plugins pantheon-systems/terminus-build-tools-plugin:^1
     - composer create-project -n -d ~/.terminus/plugins pantheon-systems/terminus-secrets-plugin:^1
     # Setup NPM for SASS Compiling for Theme
-    - php -f scripts/slack/slack_notify.php grunt "Turning SASS into CSS with Grunt: The JavaScript Task Runner."
+    - php -f scripts/slack/slack_notify.php grunt "Turning SASS into CSS with Grunt - The JavaScript Task Runner."
     - npm install --prefix web/themes/basic
     - npm install --prefix web/themes/basic -g grunt-cli
     - grunt --gruntfile web/themes/basic/Gruntfile.js sass 
