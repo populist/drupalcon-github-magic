@@ -1,0 +1,15 @@
+{%
+set classes = [
+'block',
+bundle ? 'block--' ~ bundle|clean_class,
+id ? 'block--' ~ id|clean_class,
+]
+%}
+<div{{ attributes.addClass(classes)|without('id') }}>
+<div class="loading"><img src="/sites/default/files/2017-04/degas2x1-lite.jpg"></div>
+  <div class="block__content">
+    {% block content %}
+      {{ content }}
+    {% endblock %}
+  </div>
+</div>

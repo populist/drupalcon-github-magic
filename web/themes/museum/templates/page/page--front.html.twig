@@ -1,0 +1,13 @@
+<main role="main">
+  <div class="container">
+    {{ page.content }}
+  </div>
+</main>
+
+{% if page.footer %}
+  <footer role="footer">
+    <div class="container">
+        {{ page.footer }}
+    </div>
+  </footer>
+{% endif %}

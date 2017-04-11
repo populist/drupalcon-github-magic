@@ -1,0 +1,29 @@
+name: museum
+description: A theme based on Radix.
+screenshot: screenshot.png
+# core: 8.x
+# version: VERSION
+engine: twig
+type: theme
+base theme: radix
+
+
+regions:
+  navbar_branding: 'Navbar branding'
+  navbar_left:  'Navbar left'
+  navbar_right: 'Navbar right'
+  content: Content
+  footer: Footer
+
+libraries:
+  - museum/base
+
+libraries-override:
+  radix/bootstrap: false
+  radix/style: false
+
+# Information added by Drupal.org packaging script on 2017-02-02
+version: '8.x-3.1'
+core: '8.x'
+project: 'radix'
+datestamp: 1486028890

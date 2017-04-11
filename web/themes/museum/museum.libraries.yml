@@ -1,0 +1,14 @@
+base:
+  version: VERSION
+  css:
+    theme:
+      assets/css/museum.style.css: {}
+      bower_components/flexslider/flexslider.css: {}
+      //fonts.googleapis.com/css?family=Palanquin+Dark|Montserrat|Chivo|Spinnaker: { type: external }
+  js:
+    bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js: {}
+    assets/js/museum.script.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal

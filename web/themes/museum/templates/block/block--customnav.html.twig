@@ -1,0 +1,21 @@
+{%
+set classes = [
+'block-content',
+'block-content--' ~ bundle|clean_class,
+'block-content--' ~ id|clean_class,
+bundle|clean_class
+]
+%}
+<div{{ attributes.addClass(classes)|without('id') }}>
+  <div class="navlogo">
+    <img src="/themes/museum/assets/images/met-logo2.png">
+  </div>
+  {{ title_prefix }}
+  {% if label %}
+    {{ label }}
+  {% endif %}
+  {{ title_suffix }}
+  {% block content %}
+    {{ content }}
+  {% endblock %}
+</div>

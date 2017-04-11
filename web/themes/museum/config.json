@@ -1,0 +1,36 @@
+{
+  "name": "museum",
+  "description": "A theme based on Radix.",
+  "proxy" : "http://drupal.dev",
+  "bowerDir": "./bower_components",
+  "css": {
+    "file" : "museum.style.scss",
+    "src": [
+      "assets/scss/**/*.scss"
+    ],
+    "dest": "assets/css",
+    "includePaths": [
+      "./bower_components/bootstrap-sass/assets/stylesheets",
+      "./bower_components/font-awesome/scss",
+      "../radix/scss"
+    ]
+  },
+  "js": {
+    "file" : "museum.script.js",
+    "src": [
+      "assets/js/**/*.js"
+    ]
+  },
+  "images": {
+    "src": [
+      "assets/images/**/*"
+    ],
+    "dest": "assets/images/"
+  },
+  "fonts": {
+    "src": [
+      "./bower_components/font-awesome/fonts/**.*"
+    ],
+    "dest": "./assets/fonts/"
+  }
+}

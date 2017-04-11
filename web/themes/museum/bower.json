@@ -1,0 +1,25 @@
+{
+  "name": "museum",
+  "description": "A theme based on Radix.",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "includes",
+    "kits",
+    "node_modules",
+    "templates",
+    "*.json",
+    "*.js",
+    "*.png",
+    "*.inc",
+    "*.info",
+    "*.md",
+    "*.php"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "font-awesome": "^4.7.0",
+    "flexslider": "^2.6.3"
+  }
+}

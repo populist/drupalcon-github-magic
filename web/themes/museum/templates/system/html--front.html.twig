@@ -1,0 +1,41 @@
+{%
+set body_classes = [
+logged_in ? 'page--logged-in',
+not root_path ? 'page--front' : 'path--' ~ root_path|clean_class,
+node_type ? 'page--' ~ node_type|clean_class,
+db_offline ? 'db-offline',
+]
+%}
+<!DOCTYPE html>
+<html{{ html_attributes }}>
+<head>
+  <head-placeholder token="{{ placeholder_token|raw }}">
+    <title>{{ head_title|safe_join(' | ') }}</title>
+    <css-placeholder token="{{ placeholder_token|raw }}">
+    <js-placeholder token="{{ placeholder_token|raw }}">
+      <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+      <script src="/themes/museum/bower_components/flexslider/jquery.flexslider.js"></script>
+      <script type="text/javascript" charset="utf-8">
+      $(window).on('load', function () {
+        $('.flexslider').flexslider({ animation: "fade",
+                                      selector: ".slides .field-content",
+                                      maxItems: 6,
+                                      start: function(){
+                                        $('.loading').css("display","none");
+                                        $('.slides').show();
+                                      },
+                                    });
+
+       });
+</script>
+</head>
+<body{{ attributes.addClass(body_classes) }}>
+<a href="#main-content" class="visually-hidden focusable">
+  {{ 'Skip to main content'|t }}
+</a>
+{{ page_top }}
+{{ page }}
+{{ page_bottom }}
+<js-bottom-placeholder token="{{ placeholder_token|raw }}">
+</body>
+</html>
