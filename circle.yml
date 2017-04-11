@@ -50,14 +50,15 @@ dependencies:
     - composer create-project -n -d ~/.terminus/plugins pantheon-systems/terminus-build-tools-plugin:^1
     # Setup NPM for SASS Compiling for Theme
     - php -f scripts/slack/slack_notify.php grunt "Running Grunt Javascript Task Runner..."
-    - php -f scripts/slack/slack_notify.php grunt "Compiling SASS in directory _/web/themes/basic_" TRUE 
+    - php -f scripts/slack/slack_notify.php grunt "Compiling SASS in directory _web/themes/basic_" TRUE 
+    - php -f scripts/slack/slack_notify.php grunt "CSS Generated - _web/themes/basic/colors.css_" TRUE
     - npm install --prefix web/themes/basic
     - npm install --prefix web/themes/basic -g grunt-cli
     - grunt --gruntfile web/themes/basic/Gruntfile.js sass 
   post:
     # Run Composer to Build the Asssets
     - php -f scripts/slack/slack_notify.php composer "Running Composer to create build artifact..."
-    - php -f scripts/slack/slack_notify.php composer "Composer Build Step Report: TODO" TRUE
+    - php -f scripts/slack/slack_notify.php composer "Composer Build Step Report - TODO" TRUE
     - composer -n build-assets
     # Login with Terminus
     - php -f scripts/slack/slack_notify.php terminus "Authenticating to Pantheon with Terminus machine token for user _matt@pantheon.me_."
