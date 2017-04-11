@@ -85,13 +85,6 @@ switch($slack_type) {
     $slack_message['Environment URL'] = 'https://ci-test-drupalcon-github-magic.pantheonsite.io';
     _slack_tell( $slack_message, 'drupalcon', $slack_agent, $slack_icon, $slack_color);
     break;
-  case 'pantheon_multidev_finished':
-    $slack_agent = 'Terminus';
-    $slack_icon = 'http://live-drupalcon-nola-demo.pantheonsite.io/sites/default/files/icons/terminus.png';
-    $slack_color = '#1ec503';
-    $slack_message = "Build artifact successfully pushed to Multidev environment!";
-    _slack_tell( $slack_message, 'drupalcon', $slack_agent, $slack_icon, $slack_color);
-    break;
   case 'pantheon_dev':
     $slack_agent = 'Terminus';
     $slack_icon = 'http://live-drupalcon-nola-demo.pantheonsite.io/sites/default/files/icons/terminus.png';
@@ -103,13 +96,6 @@ switch($slack_type) {
     $slack_message['Site'] = 'drupalcon-github-magic';
     $slack_message['Operation'] = 'terminus build-env:merge';
     $slack_message['Environment URL'] = 'https://ci-test-drupalcon-github-magic.pantheonsite.io';
-    _slack_tell( $slack_message, 'drupalcon', $slack_agent, $slack_icon, $slack_color);
-    break;
-  case 'pantheon_dev_finished':
-    $slack_agent = 'Terminus';
-    $slack_icon = 'http://live-drupalcon-nola-demo.pantheonsite.io/sites/default/files/icons/terminus.png';
-    $slack_color = '#1ec503';
-    $slack_message = "Build artifact successfully pushed to Dev environment!";
     _slack_tell( $slack_message, 'drupalcon', $slack_agent, $slack_icon, $slack_color);
     break;
 }
