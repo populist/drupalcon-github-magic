@@ -21,7 +21,10 @@
     "drush/drush": "~8",
     "drupal/config_installer": "^1.0",
     "drupal/config_direct_save": "^1.0",
-    "drupal/radix": "^3.1"
+    "drupal/radix": "^3.1",
+    "drupal/entity_reference_revisions": "^1.2",
+    "drupal/image_url_formatter": "^1.0@beta",
+    "drupal/paragraphs": "^1.1"
   },
   "require-dev": {
     "mikey179/vfsstream": "^1.2",
