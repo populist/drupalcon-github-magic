@@ -18,20 +18,20 @@ machine:
     # ADMIN_PASSWORD: The admin password to use when installing.
     # ADMIN_EMAIL:    The email address to give the admin when installing.
     #
-    BRANCH: $(echo $CIRCLE_BRANCH | grep -v '^\(master\|[0-9]\+.x\)$')
-    PR_ENV: ${BRANCH:+pr-$BRANCH}
-    CIRCLE_ENV: ci-$CIRCLE_BUILD_NUM
-    DEFAULT_ENV: $(echo ${PR_ENV:-$CIRCLE_ENV} | cut -c -11 | sed 's/-$//')
+    # BRANCH: $(echo $CIRCLE_BRANCH | grep -v '^\(master\|[0-9]\+.x\)$')
+    # PR_ENV: ${BRANCH:+pr-$BRANCH}
+    # CIRCLE_ENV: ci-$CIRCLE_BUILD_NUM
+    # DEFAULT_ENV: $(echo ${PR_ENV:-$CIRCLE_ENV} | cut -c -11 | sed 's/-$//')
+    DEFAULT_ENV: ci-test
     TERMINUS_ENV: ${TERMINUS_ENV:-$DEFAULT_ENV}
     PATH: $PATH:~/.composer/vendor/bin:~/.config/composer/vendor/bin:tests/scripts
 
 dependencies:
   cache_directories:
     - ~/.composer/cache
-    - ~/web/themes/basic/node_modules
-    - ~/web/themes/basic/lib/node_modules
-    - ~/nvm/versions/node/5.3/bin
-    - ~/nvm/versions/node/5.3/lib/node_modules
+    - ~/drupalcon-github-magic/web/themes/basic/node_modules
+    - ~/drupalcon-github-magic/web/themes/basic/bin
+    - ~/drupalcon-github-magic/web/themes/basic/lib/node_modules
   pre:
     # Notify Slack It Is All Happening
     - php -f scripts/slack/slack_notify.php circle "Code change detected on https://github.com/populist/drupalcon-github-magic."
@@ -45,7 +45,6 @@ dependencies:
     - composer global require -n "hirak/prestissimo:^0.3"
     - composer global require -n "consolidation/cgr"
     - cgr "pantheon-systems/terminus:^1"
-    - terminus --version
     - mkdir -p ~/.terminus/plugins
     - composer create-project -n -d ~/.terminus/plugins pantheon-systems/terminus-build-tools-plugin:^1
     # Setup NPM for SASS Compiling for Theme
@@ -55,24 +54,30 @@ dependencies:
     - grunt --gruntfile web/themes/basic/Gruntfile.js sass 
   post:
     # Login with Terminus
-    - php -f scripts/slack/slack_notify.php terminus "Logging into Pantheon with Terminus."
+    - php -f scripts/slack/slack_notify.php terminus "Logging into Pantheon with Terminus for matt@pantheon.me with a _Machine Token_."
+    - php -f scripts/slack/slack_notify.php terminus "Using `terminus --version` for all operations."
     - terminus auth:login -n --machine-token="$TERMINUS_TOKEN"
     # Delete old CI environment
-    - terminus build-env:delete:ci -n "$TERMINUS_SITE" --keep=2 --yes
+    # - terminus build-env:delete:ci -n "$TERMINUS_SITE" --keep=2 --yes
     # Run Composer to Build the Asssets
     - php -f scripts/slack/slack_notify.php composer "Assembling Site Assets with Composer to Create Build Artifact."
     - composer -n build-assets
     # Wake the Development Site
     - terminus env:wake -n "$TERMINUS_SITE.dev"
     # Setup the CI Testing Environment
-    - php -f scripts/slack/slack_notify.php pantheon "Creating a Multidev Testing Environment Here - $TERMINUS_ENV"
-    - terminus build-env:create -n "$TERMINUS_SITE.dev" "$TERMINUS_ENV" --yes --clone-content --db-only 
+    - php -f scripts/slack/slack_notify.php pantheon "Setting up Pantheon Multidev testing environment..."
+    - php -f scripts/slack/slack_notify.php pantheon "Using existing Multidev environment - $TERMINUS_ENV" TRUE
+    - php -f scripts/slack/slack_notify.php pantheon "Pushing build artifact to Multidev environment" TRUE
+    - terminus build-env:create -n "$TERMINUS_SITE.dev" "$TERMINUS_ENV" --yes
+    # - terminus build-env:create -n "$TERMINUS_SITE.dev" "$TERMINUS_ENV" --yes --clone-content --db-only 
     # Import Configuration Into Site
     # - terminus drush "$TERMINUS_SITE.$TERMINUS_ENV" -- config-import --yes
 test:
   override:
-    - php -f scripts/slack/slack_notify.php behat "Running Behat Tests"
     # Run Behat Testing
+    - php -f scripts/slack/slack_notify.php behat "Kicking off Behat testing..."
+    - php -f scripts/slack/slack_notify.php behat "Test One: TODO" TRUE
+    - php -f scripts/slack/slack_notify.php behat "Test TWO: TODO" TRUE
     # - run-behat
 
 deployment:
