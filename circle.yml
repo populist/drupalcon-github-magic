@@ -64,6 +64,7 @@ dependencies:
     - terminus drush "$TERMINUS_SITE.$TERMINUS_ENV" -- config-import --yes
 test:
   override:
+    - php -f scripts/slack/slack_notify.php behat "Running Behat Tests"
     # Run Behat Testing
     # - run-behat
   post:
