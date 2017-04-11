@@ -34,9 +34,7 @@ dependencies:
     - git config --global user.name "Circle CI"
   override:
     # Setup the Proper Tooling
-    - composer global require -n "hirak/prestissimo:^0.3"
-    - composer global require -n "consolidation/cgr"
-    - cgr "pantheon-systems/terminus:^1"
+    - composer global require -n  "pantheon-systems/terminus:^1"
     - mkdir -p ~/.terminus/plugins
     - composer create-project -n -d ~/.terminus/plugins pantheon-systems/terminus-build-tools-plugin:^1
     # Setup NPM for SASS Compiling for Theme
