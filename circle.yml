@@ -1,6 +1,6 @@
 machine:
   node:
-    version: 5.3
+    version: 7.7.3
   timezone:
     America/Chicago
   php:
@@ -39,8 +39,8 @@ dependencies:
     - composer create-project -n -d ~/.terminus/plugins pantheon-systems/terminus-build-tools-plugin:^1
     # Setup NPM for SASS Compiling for Theme
     - php -f scripts/slack/slack_notify.php gulp
-    - npm install --prefix web/themes/museum
     - npm install --prefix web/themes/museum -g gulp-cli
+    - npm install --prefix web/themes/museum gulp -D
     - gulp --gulpfile web/themes/museum/gulpfile.js css
   post:
     # Run Composer to Build the Asssets
