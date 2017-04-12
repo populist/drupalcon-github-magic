@@ -34,7 +34,7 @@ if (defined('PANTHEON_ENVIRONMENT') && (PANTHEON_ENVIRONMENT == 'test' || PANTHE
   // Find out if there's a deploy tag:
   $revision = `git describe --tags`;
   // Get the annotation:
-  $changelog = `git tag -l -n99 $deploy_tag`;
+  $changelog = `git tag -l -n99 $revision`;
   $user = $_POST['user_email'];
 
   // Use New Relic's v1 curl command-line example.
