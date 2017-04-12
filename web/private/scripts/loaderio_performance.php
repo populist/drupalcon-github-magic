@@ -9,7 +9,7 @@ $secrets  = _get_secrets( array( 'loader_api_key' ), $defaults );
 
 // Define Values to Get Started
 $api_key = $secrets['loader_api_key'];
-$test_id = 'd572bfd1cea629b3810c129dbe4dfd3b';
+$test_id = 'a747d3fa27c22fffeee4739c8a9e3709';
 $slack_channel_name = 'drupalcon';
 $slack_user_name = 'PerformanceTesting-with-LoaderIO';
 $slack_user_icon = 'http://live-drupalcon-nola-demo.pantheonsite.io/sites/default/files/icons/loaderio.png';
@@ -19,7 +19,7 @@ if (defined('PANTHEON_ENVIRONMENT') && (PANTHEON_ENVIRONMENT == 'test')) {
   $message = 'Starting a performance test on the test environment...' . "\n";
   _slack_tell($message, $slack_channel_name, $slack_user_name, $slack_user_icon);
   $message = array();
-  $message['Test Conditions'] = 'Testing _50 virtual users_ over _3 minutes_ with the *Loader.io* platform.';
+  $message['Test Conditions'] = 'Testing _50 virtual users_ over _60 seconds_ with the *Loader.io* platform.';
   $curl = curl_init();
   $curl_options = array(
     CURLOPT_URL => 'https://api.loader.io/v2/tests/' . $test_id . '/run',
@@ -36,7 +36,7 @@ if (defined('PANTHEON_ENVIRONMENT') && (PANTHEON_ENVIRONMENT == 'test')) {
   }
   else {
     $message = array();
-    $message['Error'] = cwords($curl_response->message) . "\n";
+    $message['Error'] = $curl_response->message . "\n";
   }
   _slack_tell($message, $slack_channel_name, $slack_user_name, $slack_user_icon, '#add8e6');
 }

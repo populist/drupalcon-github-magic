@@ -5,7 +5,7 @@ require_once( dirname( __FILE__ ) . '/slack_helper.php' );
 
 // Deal with Secrets
 $defaults = array();
-$secrets  = _get_secrets( array( 'tinfoil_api_key', 'tinfoil_secrets_key' ), $defaults );
+$secrets  = _get_secrets( array( 'tinfoil_api_key', 'tinfoil_secret_key' ), $defaults );
 
 // Define Values to Get Started
 $api_key = $secrets['tinfoil_api_key'];
