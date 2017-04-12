@@ -51,4 +51,11 @@ if (defined('PANTHEON_ENVIRONMENT') && (PANTHEON_ENVIRONMENT == 'test' || PANTHE
   echo "Logging deployment in New Relic...\n";
   passthru($curl);
   echo "Done!";
+
+  // Log this all in Slack
+  $slack_channel_name = 'drupalcon';
+  $slack_user_name = 'New Relic';
+  $slack_user_icon = 'http://live-drupalcon-github-magic.pantheonsite.io/sites/default/files/icons/newrelic.png';
+  $message = 'Adding a New Relic deploy marker to the `' . PANTHEON_ENVIRONMENT . '` environment.';
+  _slack_tell($message, $slack_channel_name, $slack_user_name, $slack_user_icon, '#0ab0bf');
 }
