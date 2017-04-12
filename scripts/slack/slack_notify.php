@@ -48,15 +48,15 @@ switch($slack_type) {
     $slack_message['Build URL'] = 'https://circleci.com/gh/populist/drupalcon-github-magic/' . $argv[2];
     _slack_tell( $slack_message, 'drupalcon', $slack_agent, $slack_icon, $slack_color);
     break;
-  case 'grunt':
-    $slack_agent = 'Grunt JS';
-    $slack_icon = 'http://live-drupalcon-nola-demo.pantheonsite.io/sites/default/files/icons/grunt.png';
-    $slack_color = '#e48632';
-    $slack_message = 'Running Grunt Javascript Task Runner...';
+  case 'gulp':
+    $slack_agent = 'gulp';
+    $slack_icon = 'http://live-drupalcon-nola-demo.pantheonsite.io/sites/default/files/icons/gulp.png';
+    $slack_color = '#CF4647';
+    $slack_message = 'Running Gulp Javascript Task Runner...';
     _slack_tell( $slack_message, 'drupalcon', $slack_agent, $slack_icon, $slack_color);
     $slack_message = array();
-    $slack_message['Target Directory'] = 'web/themes/basic';
-    $slack_message['Grunt Operations'] = 'SASS Compilation';
+    $slack_message['Target Directory'] = 'web/themes/museum';
+    $slack_message['Gulp Operations'] = 'SASS Compilation';
     $slack_message['Files'] = '_colors.css_, _fonts.css_, _layout.css_';
     $slack_message['Status'] = 'Complete';
     _slack_tell( $slack_message, 'drupalcon', $slack_agent, $slack_icon, $slack_color);

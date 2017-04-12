@@ -38,10 +38,10 @@ dependencies:
     - mkdir -p ~/.terminus/plugins
     - composer create-project -n -d ~/.terminus/plugins pantheon-systems/terminus-build-tools-plugin:^1
     # Setup NPM for SASS Compiling for Theme
-    - php -f scripts/slack/slack_notify.php grunt 
-    - npm install --prefix web/themes/basic
-    - npm install --prefix web/themes/basic -g grunt-cli
-    - grunt --gruntfile web/themes/basic/Gruntfile.js sass 
+    - php -f scripts/slack/slack_notify.php gulp
+    - npm install --prefix web/themes/museum
+    - npm install --prefix web/themes/museum -g gulp-cli
+    - gulp --gulpfile web/themes/museum/gulpfile.js css
   post:
     # Run Composer to Build the Asssets
     - php -f scripts/slack/slack_notify.php composer 
