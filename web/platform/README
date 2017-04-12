@@ -1,0 +1,3 @@
+To run from localhost:
+
+python -m SimpleHTTPServer

@@ -1,0 +1,218 @@
+/* Put your CSS here */
+html, body {
+  height: 100%;
+  font-family: 'Open Sans', Helvetica, sans-serif;
+
+}
+
+body{
+  background: #E9EDED;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, a{
+  font-family: 'Open Sans', Helvetica, sans-serif;
+}
+
+#internet h4, #diagramContainer h4{
+  display: inline;
+  position: absolute;
+  color: #B5C0C3;
+  width: auto;
+  margin: 30px 0 0 20px;
+}
+
+#diagramContainer h4{
+  top: 200px;
+}
+
+.ember-application {
+  margin:0;
+  padding: 0;
+}
+
+#internet{
+  background:#F5F8F8;
+  padding: 20px 0;
+  overflow: hidden;
+}
+.circleIcon img{
+  margin: 0px auto;
+  display: block;
+  position: relative;
+}
+#thecloud {
+  display:table;
+  margin: 0 auto;
+}
+
+.circleIcon{
+  display:table-cell;
+  text-align: center;
+  vertical-align: middle;
+  background: #313945;
+  margin: 0px 10px;
+  height: 72px;
+  width: 72px;
+  border-radius: 36px;
+  display: block;
+  padding: 16px 0;
+  float: left;
+  transition: all 0.5s ease;
+
+}
+
+#diagramContainer, #diagramContainer > svg {
+  width: auto !important;
+  margin: 0 auto;
+}
+
+
+#ember248{
+  width: 100%;
+  transition: all 0.5s ease;
+}
+#ember248.emerge{
+  transition: all 0.5s ease;
+}
+
+#infobarContainer {
+  width: 33%;
+  position: absolute;
+  right: -33%;
+  margin-top: 0;
+  margin-right:0px;
+  height: 450px;
+  top: 150px;
+  background-color:#333;
+  color:#fff;
+  transition: all 0.5s ease;
+  opacity: 0.95;
+  height: auto !important;
+  min-height: 20%;
+  padding-bottom: 40px;
+}
+
+#infobarContainer.emerge{
+  width: 33%;
+  right: 0;
+  margin-right: 30px;
+  transition: all 0.5s ease;
+}
+
+.infobarContent {
+  text-align: left;
+  padding: 0 25px 0 20px;
+  font-size:12pt;
+}
+
+.body img{
+  width: 100%;
+  margin: 1em 0;
+}
+
+.infobarContent>h1 {
+  text-align: center;
+}
+
+.header p, .body p {
+  padding: 0;
+  font-size:18px;
+  margin-left: 5px;
+  font-weight: 400;
+}
+
+.header{
+  height: 100px;
+}
+
+.header h1{
+  font-size: 24px;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.header img{
+  margin: 0 20px 0 0px;
+  float: left;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.body p{
+  clear: both;
+  color: #fefefe;
+}
+
+.body {
+  /* padding:.4em;
+   font-size: 1.5em; */
+}
+
+a.logo {
+  padding-top: 0;
+}
+
+.logo > img {
+  margin-right: 10px;
+}
+
+
+/*------------------------NAVBAER---------------------------------*/
+
+@font-face {
+  font-family: 'Glyphicons Regular';
+  src: url("../fonts/glyphicons-regular.eot");
+  src: url("../fonts/glyphicons-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/glyphicons-regular.woff2") format("woff2"), url("../fonts/glyphicons-regular.woff") format("woff"), url("../fonts/glyphicons-regular.ttf") format("truetype"), url("../fonts/glyphicons-regular.svg#glyphiconsregular") format("svg"); }
+.glyphicons {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Regular';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  vertical-align: top;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+.glyphicons-wrench:before {
+    content: "\E440"; }
+.glyphicons-equalizer:before {
+      content: "\E586"; }
+.glyphicons-cardio:before {
+        content: "\E283"; }
+
+.navbar{
+  margin-bottom: 0px;
+}
+
+.navbar-default .navbar-nav>li>a {
+  letter-spacing: 0.5px;
+}
+
+.navbar-default .navbar-nav>li>a.dropdown-toggle{
+  background:#5FC91C;
+  border-radius: 25px;
+  color: #fff;
+  padding: 5px 20px;
+  position: relative;
+  margin-top: 10px;
+  margin-left: 20px;
+  }
+
+  .caret{
+    margin-left: 5px;
+  }
+
+  .navbar-default .navbar-nav>li>a.dropdown-toggle:hover, .navbar-default .navbar-nav>li>a.dropdown-toggle:active, .navbar-default .navbar-nav>li>a.dropdown-toggle:focus{
+    background:#55AC24;
+    color: #fff;
+    transition: all 0.2s ease;
+    }

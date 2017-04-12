@@ -1,0 +1,52 @@
+{
+    "servers": [
+        {
+            "id": "AAAAAAAA",
+            "type": "edgeserver",
+            "endpoint": "edge1",
+            "slave_of": null
+        },
+        {
+            "id": "f6243555",
+            "endpoint": "af2ce376-8d4f-4d95-9772-353d705cb5f6",
+            "type": "indexserver",
+            "slave_of": null
+        },
+        {
+            "id": "16419495",
+            "endpoint": "ee5f7578-6a75-4d07-9dd8-ce1614ba1777",
+            "type": "cacheserver",
+            "slave_of": null
+        },
+        {
+            "id": "764ea3b8",
+            "endpoint": "8105f8fa-8fd2-4efe-b5d4-486207845f78",
+            "type": "appserver",
+            "slave_of": null
+        },
+        {
+            "id": "44bfec74",
+            "endpoint": "3548c1e8-4756-4e4f-b580-10d8dc996918",
+            "type": "dbserver",
+            "slave_of": null
+        },
+        {
+            "id": "ad32c423",
+            "endpoint": "4d4e86f2-2d1f-4c65-ab3f-7ed352ed86ce",
+            "type": "codeserver",
+            "slave_of": null
+        },
+        {
+            "id": "5f3c9b68",
+            "endpoint": null,
+            "type": "newrelic",
+            "slave_of": null
+        },
+        {
+            "id": "e811b495",
+            "endpoint": null,
+            "type": "fileserver",
+            "slave_of": null
+        }
+    ]
+}

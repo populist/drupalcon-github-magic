@@ -1,0 +1,133 @@
+.bgCircle {
+  fill: white;
+  opacity: 1;
+}
+
+
+
+
+.link {
+  stroke: #999;
+  stroke-opacity: .6;
+  stroke-width: 1px;
+  transition: all 0.2s ease;
+}
+
+.link.dashed{
+    /*fill: none;*/
+    /*stroke: #999;*/
+    /*stroke-opacity: .6;*/
+    stroke-dasharray: 3;
+    /*stroke-dasharray: 20,10,5,5,5,10;*/
+}
+
+
+
+.link.active{
+  /*stroke: #999;*/
+  stroke-opacity: 1;
+  stroke: #313945;
+  stroke-opacity: 1;
+  stroke-width: 1px;
+  transition: all 0.2s ease;
+}
+
+.server.nodetext {
+  color: #000000;
+}
+
+.icon{
+  width: 44px;
+  height: 44px;
+}
+
+
+.appserver, .edgeserver, .fileserver, .dbserver, .slavedbserver, .indexserver, .cacheserver, .codeserver, .newrelic{
+  stroke: none;
+
+  background: #313945;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.inactive .appserver, .inactive .edgeserver, .inactive .fileserver, .inactive .dbserver, .inactive .slavedbserver, .inactive .indexserver, .inactive .cacheserver, .inactive .codeserver, .inactive .newrelic{
+  stroke: none;
+  fill: #B5C0C3;
+  background-color: #B5C0C3;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+
+.node.inactive:hover .appserver,
+.node.inactive:hover .edgeserver,
+.node.inactive:hover .fileserver,
+.node.inactive:hover .dbserver,
+.node.inactive:hover .slavedbserver,
+.node.inactive:hover .indexserver,
+.node.inactive:hover .cacheserver,
+.node.inactive:hover .codeserver,
+.node.inactive:hover .newrelic{
+  cursor: pointer;
+  fill: #686F77;
+  background-color: #9EA5A9;
+  transition: all 0.2s ease;
+}
+
+.node .icon:hover{
+  cursor: pointer;
+}
+
+/*
+.appserver {
+  stroke: none;
+  fill: rgb(255,235,136);
+  background-color: rgb(255,235,136);
+}
+
+.edgeserver {
+  fill: rgb(0,187,223);
+  background-color: rgb(0,187,223);
+  color: white;
+}
+
+.fileserver {
+  fill: rgb(92,92,179);
+  background-color: rgb(92,92,179);
+  color: white;
+}
+
+.dbserver {
+  fill: rgb(0,187,223);
+  background-color: rgb(0,187,223);
+  color: white;
+}
+
+.slavedbserver {
+  fill: rgb(180,237,249);
+  background-color: rgb(180,237,249);
+}
+
+.indexserver {
+  fill: rgb(0,228,179);
+  background-color: rgb(0,228,179);
+}
+
+.cacheserver {
+  fill: rgb(254,74,69);
+  background-color: rgb(254,74,69);
+  color: white;
+}
+
+.codeserver {
+  fill: rgb(243,79,41);
+  background-color: rgb(243,79,41);
+  color: white;
+}
+
+.newrelic {
+  fill: rgb(0,0,0);
+  background-color: rgb(0,0,0);
+  color: white;
+}
+*/

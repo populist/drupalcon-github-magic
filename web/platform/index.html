@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Pantheon Platform</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <!--link rel="stylesheet" href="lib/jquery-ui.min.css" /-->
+  <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/d3.css">
+  <link rel="icon" type="image/ico" href="http://pantheon.io/favicon.ico"/>
+</head>
+<body>
+  <script type="text/x-handlebars" id="application">
+    {{view App.NavView}}
+    {{view App.DiagramView}}
+    {{view App.InfobarView}}
+  </script>
+
+  <script type='text/x-handlebars' data-template-name="diagram">
+    <div id="internet">
+      <h4>Incoming traffic</h4>
+      <div id="thecloud">
+        <div class="circleIcon">
+          <img src="img/User-icon-white-72x72.png" />
+        </div>
+      </div>
+    </div>
+      <div id="diagramContainer">
+        <h4>Pantheon platform</h4>
+      </div>
+  </script>
+
+  <script type='text/x-handlebars' data-template-name="nav">
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+
+        <div class="navbar-header">
+          <a class="navbar-brand logo"><img src='img/fist-transparent.png' height='48px'/>The Pantheon Platform</a>
+
+
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class='link dev'><a href="#/diagram/dev"><span class="glyphicon glyphicon-wrench"></span> Dev</a></li>
+            <li class='link test'><a href="#/diagram/test"><span class="glyphicons glyphicons-equalizer"></span> Test</a></li>
+            <li class='link live'><a href="#/diagram/live"><span class="glyphicons glyphicons-cardio"></span> Live</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Service Levels <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li class="personal"><a href="#/diagram/personal">Personal</a></li>
+                <li class="professional"><a href="#/diagram/professional">Professional</a></li>
+                <li class="business"><a href="#/diagram/business">Business</a></li>
+                <li class="elite"><a href="#/diagram/elite">Elite</a></li>
+                <li class="elitemax"><a href="#/diagram/elite">Elite scaled for spikes </a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </script>
+
+  <script type='text/x-handlebars' data-template-name="infobarContainer">
+    <div id="infobarContainer">
+      {{view App.InfobarContentView}}
+    </div>
+  </script>
+
+  <script type='text/x-handlebars' data-template-name="infobarContent">
+    <div class="infobarContent">
+      <div class="header">
+          <img class='headerIcon'/>
+          <h1>{{controller.title}}</h1>
+      </div>
+      <div class="body">
+        <p>{{{controller.text}}}</p>
+      </div>
+    </div>
+  </script>
+
+  <script src="lib/d3.v3.min.js"></script>
+  <script src="lib/jquery.min.js"></script>
+  <!-- script src="lib/jquery-ui.min.js"></script -->
+  <script src="lib/handlebars.min.js"></script>
+  <script src="lib/ember.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="js/graph.js"></script>
+  <script src="js/site.js"></script>
+  <script src="js/app.js"></script>
+  <script  type="text/javascript">
+  $(document).ready(function(){
+
+    $(document).on("click",".dropdown-menu > li",function(){
+      var user_image ='<div class="circleIcon"><img src="img/User-icon-white-72x72.png"/></div>';
+      var className = $(this).attr('class');
+      $("#thecloud").empty();
+      if (className == "elite"){
+        for (i=0;i<8;i++){
+          $(user_image).appendTo("#thecloud");
+
+        }
+      } else if(className =="elitemax"){
+        for (i=0;i<16;i++){
+          $(user_image).appendTo("#thecloud");
+
+        }
+      } else if(className =="business"){
+        for (i=0;i<4;i++){
+          $(user_image).appendTo("#thecloud");
+
+        }
+      } else if(className =="professional"){
+        for (i=0;i<2;i++){
+          $(user_image).appendTo("#thecloud");
+
+        }
+      } else if (className =="personal"){
+        $(user_image).appendTo("#thecloud");
+      }
+    });
+});
+  </script>
+</body>
+</html>
