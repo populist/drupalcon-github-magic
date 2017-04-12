@@ -50,8 +50,6 @@ dependencies:
     # Setup the CI Testing Environment
     - php -f scripts/slack/slack_notify.php pantheon_multidev
     - terminus build-env:push-code "$TERMINUS_SITE.$TERMINUS_ENV" --yes
-    # Import Configuration Into Site
-    # - terminus drush "$TERMINUS_SITE.$TERMINUS_ENV" -- config-import --yes
 test:
   override:
     # Run Behat Testing
@@ -66,5 +64,3 @@ deployment:
       # Merge the Code from the Testing Environment to Master
       - php -f scripts/slack/slack_notify.php pantheon_dev
       - terminus build-env:merge -n "$TERMINUS_SITE.$TERMINUS_ENV" --yes
-      # Import Configuration Into Dev Site
-      # - terminus drush "$TERMINUS_SITE.dev" -- config-import --yes

@@ -9,6 +9,9 @@ workflows:
       - type: webphp
         description: posting to Slack about the commit
         script: private/scripts/slack_after_code_sync.php
+      - type: webphp
+        description: importing the Drupal 8 config into the site
+        script: private/scripts/import_config_d8.php
 
   # Deploy: Making Magic Happen in the Test Environment
   deploy:
