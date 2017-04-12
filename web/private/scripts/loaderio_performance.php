@@ -36,7 +36,7 @@ if (defined('PANTHEON_ENVIRONMENT') && (PANTHEON_ENVIRONMENT == 'test')) {
   }
   else {
     $message = array();
-    $message['Error'] = $curl_response->message . "\n";
+    $message['Error'] = print_r($curl_response,true). "\n";
   }
   _slack_tell($message, $slack_channel_name, $slack_user_name, $slack_user_icon, '#add8e6');
 }
