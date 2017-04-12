@@ -54,7 +54,7 @@ test:
   override:
     # Run Behat Testing
     - php -f scripts/slack/slack_notify.php behat 
-    # - run-behat
+    - run-behat
     - php -f scripts/slack/slack_notify.php behat_finished
 
 deployment:
