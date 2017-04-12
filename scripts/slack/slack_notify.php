@@ -14,7 +14,7 @@ switch($slack_type) {
     $slack_message = 'Kicking off Behavioral Testing with Behat...';
     _slack_tell( $slack_message, 'drupalcon', $slack_agent, $slack_icon, $slack_color);
     $slack_message = array();
-    $slack_message['Test'] = '*Scenario*: A user should see "El Museo de Arte" on the homepage' . "\n" . '     *Given* I am on the homepage' . "\n" .  '      *Then* I should see the text "El Museo de Arte"';
+    $slack_message[] = '*Scenario*: A user should see "El Museo de Arte" on the homepage' . "\n" . '     *Given* I am on the homepage' . "\n" .  '      *Then* I should see the text "El Museo de Arte"';
     _slack_tell( $slack_message, 'drupalcon', $slack_agent, $slack_icon, $slack_color);
     break;
   case 'behat_finished':
