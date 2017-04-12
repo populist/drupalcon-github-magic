@@ -22,9 +22,6 @@ machine:
 dependencies:
   cache_directories:
     - ~/.composer/cache
-    - ~/.cache/yarn
-    - ~/.yarn
-    - ~/drupalcon-github-magic/web/themes/museum/node_modules
   pre:
     # Notify Slack It Is All Happening
     - php -f scripts/slack/slack_notify.php circle "${CIRCLE_BUILD_NUM}"
@@ -40,7 +37,7 @@ dependencies:
     # Setup SASS Compiling for Theme
     - php -f scripts/slack/slack_notify.php sass
     - sudo apt-get install ruby-sass
-    - sass web/themes/museum/assets/scss/custom.style.scss web/themes/museum/assets/css/custom.style.css
+    - sass web/themes/museum/custom.style.scss web/themes/museum/custom.style.css
   post:
     # Run Composer to Build the Asssets
     - php -f scripts/slack/slack_notify.php composer 
