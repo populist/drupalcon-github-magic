@@ -8960,3 +8960,13 @@ border-bottom: 1px solid #cd0027;
 .block-content--customnav .basic__body {
   margin-left:60px;
 }
+
+.cta {
+  background-color: #e4002b;
+  color: #fff;
+  padding: 8px;
+  text-align: center;
+  width: 60%;
+  margin-left: 40px;
+  margin-top: 20px;
+}

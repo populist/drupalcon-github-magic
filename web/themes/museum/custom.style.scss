@@ -1,4 +1,4 @@
-$navbar-color: green;
+$navbar-color: '#E4002B';
 $navbar-highlight: darken($navbar-color, 10%);
 
 .block-content--customnav {
@@ -12,4 +12,8 @@ $navbar-highlight: darken($navbar-color, 10%);
 
 .block-content--customnav ul.navtop {
   border-bottom: 1px solid $navbar-highlight;
+}
+
+.cta {
+  background-color: $navbar-color;
 }
