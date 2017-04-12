@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Go to base level of project
+cd "$(dirname $0)/../../"
+
+if [ -z "$TERMINUS_SITE" ] || [ -z "$TERMINUS_ENV" ]
+then
+  echo 'No test site specified. Set TERMINUS_SITE and TERMINUS_ENV.'
+  exit 1
+fi
+
+echo "::::::::::::::::::::::::::::::::::::::::::::::::"
+echo "Visual Regresison : $TERMINUS_SITE.$TERMINUS_ENV"
+echo "::::::::::::::::::::::::::::::::::::::::::::::::"
+echo
+
+# Exit immediately on errors, and echo commands as they are executed.
+set -ex
+
+cd tests
+backstop reference
+VISUAL_REGRESSION_RESULTS=$(backstop test)
+
+if [[ ${VISUAL_REGRESSION_RESULTS} == *"Mismatch errors found"* ]]
+then
+  php -f ../scripts/slack/slack_notify.php visualregression_finished `find . | grep png | grep failed`
+  echo 'FAILED';
+else
+  # TODO
+  echo 'PASSED';
+fi

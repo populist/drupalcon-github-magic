@@ -7,6 +7,26 @@ require_once( dirname( __FILE__ ) . '/slack_helper.php' );
 $slack_type = $argv[1]; // Argument One
 
 switch($slack_type) {
+  case 'visualregression_finished':
+    // Post the File Using Uploads.IM
+    $file_name_with_full_path = $argv[2];
+    $target_url = 'http://uploads.im/api';
+    $cFile = curl_file_create($file_name_with_full_path);
+    $post = array('format' => 'json','file_contents'=> $cFile);
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL,$target_url);
+    curl_setopt($curl, CURLOPT_POST,1);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $post);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
+    $curl_response = json_decode(curl_exec($curl));
+    curl_close($curl);
+
+    $slack_agent = 'Backstop Visual Regression Test';
+    $slack_icon = 'http://live-drupalcon-github-magic.pantheonsite.io/sites/default/files/icons/backstop.png';
+    $slack_color = '#800080';
+    $slack_message = 'Visual Regression test is completed. Result - ' . $curl_response->data->thumb_url;
+    _slack_tell( $slack_message, 'drupalcon', $slack_agent, $slack_icon, $slack_color);
+    break;
   case 'behat': 
     $slack_agent = 'Behat';
     $slack_icon = 'http://live-drupalcon-github-magic.pantheonsite.io/sites/default/files/icons/behat.png';

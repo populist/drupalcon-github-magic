@@ -38,6 +38,9 @@ dependencies:
     - php -f scripts/slack/slack_notify.php sass
     - sudo apt-get install ruby-sass
     - sass web/themes/museum/custom.style.scss web/themes/museum/custom.style.css
+    # Setup the Visual Regression
+    - npm install -g backstopjs
+    - sudo npm install -g slimerjs
   post:
     # Run Composer to Build the Asssets
     - php -f scripts/slack/slack_notify.php composer 
@@ -56,6 +59,10 @@ test:
     - php -f scripts/slack/slack_notify.php behat 
     - run-behat
     - php -f scripts/slack/slack_notify.php behat_finished
+    # Run Visual Regression Testing
+    # - php -f scripts/slack/slack_notify.php visualregression
+    - run-visual
+    # - php -f scripts/slack/slack_notify.php visualregression_finished
 
 deployment:
   build-assets:

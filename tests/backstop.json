@@ -1,0 +1,38 @@
+{
+  "id": "visual_regression_ci_test",
+  "viewports": [
+    {
+      "name": "desktop",
+      "width": 1920,
+      "height": 1080 
+    }
+  ],
+  "scenarios": [
+    {
+      "label": "Homepage JS Test",
+      "url": "http://ci-test-drupalcon-github-magic.pantheonsite.io/",
+      "referenceUrl": "http://live-drupalcon-github-magic.pantheonsite.io/",
+      "selectors": ["document"],
+      "hideSelectors": [],
+      "readyEvent": null,
+      "delay": 500,
+      "misMatchThreshold" : 0.1
+    }
+  ],
+  "paths": {
+    "bitmaps_reference": "backstop_data/bitmaps_reference",
+    "bitmaps_test": "backstop_data/bitmaps_test",
+    "casper_scripts": "backstop_data/casper_scripts",
+    "html_report": "backstop_data/html_report",
+    "ci_report": "backstop_data/ci_report"
+  },
+  "casperFlags": [],
+  "engine": "slimer",
+  "report": ["CI"],
+  "debug": false,
+  "ci": {
+     "format" :  "junit" ,
+     "testReportFileName": "ci-test-xunit", 
+     "testSuiteName" :  "backstopJS"
+  }
+}
