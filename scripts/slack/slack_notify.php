@@ -7,7 +7,14 @@ require_once( dirname( __FILE__ ) . '/slack_helper.php' );
 $slack_type = $argv[1]; // Argument One
 
 switch($slack_type) {
-  case 'visualregression_finished':
+  case 'visualregression_finished_same':
+    $slack_agent = 'BackstopJS Visual Regression';
+    $slack_icon = 'http://live-drupalcon-github-magic.pantheonsite.io/sites/default/files/icons/backstop.png';
+    $slack_color = '#800080';
+    $slack_message = array('No Visual Differences Detected!');
+    _slack_tell( $slack_message, 'drupalcon', $slack_agent, $slack_icon, $slack_color); 
+    break;
+  case 'visualregression_finished_differences':
     // Post the File Using Uploads.IM
     $file_name_with_full_path = $argv[2];
     $target_url = 'http://uploads.im/api';
@@ -21,11 +28,18 @@ switch($slack_type) {
     $curl_response = json_decode(curl_exec($curl));
     curl_close($curl);
 
-    $slack_agent = 'Backstop Visual Regression Test';
+    $slack_agent = 'BackstopJS Visual Regression';
     $slack_icon = 'http://live-drupalcon-github-magic.pantheonsite.io/sites/default/files/icons/backstop.png';
     $slack_color = '#800080';
-    $slack_message = 'Visual Regression test is completed. Result - ' . $curl_response->data->thumb_url;
+    $slack_message = array('Visual Differences Detected! ' . $curl_response->data->thumb_url);
     _slack_tell( $slack_message, 'drupalcon', $slack_agent, $slack_icon, $slack_color);
+    break;
+  case 'visualregression':
+    $slack_agent = 'BackstopJS Visual Regression';
+    $slack_icon = 'http://live-drupalcon-github-magic.pantheonsite.io/sites/default/files/icons/backstop.png';
+    $slack_color = '#800080';
+    $slack_message = 'Kicking off a Visual Regression test using BackstopJS...';
+    _slack_tell( $slack_message, 'drupalcon', $slack_agent, $slack_icon, $slack_color); 
     break;
   case 'behat': 
     $slack_agent = 'Behat';

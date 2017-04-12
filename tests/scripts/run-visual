@@ -23,9 +23,9 @@ VISUAL_REGRESSION_RESULTS=$(backstop test || echo 'true')
 
 if [[ ${VISUAL_REGRESSION_RESULTS} == *"Mismatch errors found"* ]]
 then
-  php -f ../scripts/slack/slack_notify.php visualregression_finished `find . | grep png | grep failed`
+  php -f ../scripts/slack/slack_notify.php visualregression_finished_differences `find . | grep png | grep failed`
   echo 'FAILED';
 else
-  # TODO
+  php -f ../scripts/slack/slack_notify.php visualregression_finished_same
   echo 'PASSED';
 fi

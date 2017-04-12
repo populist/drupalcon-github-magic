@@ -62,9 +62,8 @@ test:
     - run-behat
     - php -f scripts/slack/slack_notify.php behat_finished
     # Run Visual Regression Testing
-    # - php -f scripts/slack/slack_notify.php visualregression
+    - php -f scripts/slack/slack_notify.php visualregression
     - run-visual
-    # - php -f scripts/slack/slack_notify.php visualregression_finished
 
 deployment:
   build-assets:
