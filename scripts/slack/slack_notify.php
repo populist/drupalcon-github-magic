@@ -39,12 +39,11 @@ switch($slack_type) {
     $slack_agent = 'CircleCI';
     $slack_icon = 'http://live-drupalcon-github-magic.pantheonsite.io/sites/default/files/icons/circle.png';
     $slack_color = '#229922';
-    $slack_message = 'New code is detected! Time to kick off a new build...';
+    $slack_message = 'New code is detected on GitHub! Time to kick off a new build...';
     _slack_tell( $slack_message, 'drupalcon', $slack_agent, $slack_icon, $slack_color);
     $slack_message = array();
-    $slack_message['Source Branch'] = 'master';
-    $slack_message['Source Repository'] = 'https://github.com/populist/drupalcon-github-magic';
     $slack_message['Build ID'] = $argv[2];
+    $slack_message['Source Repository'] = 'https://github.com/populist/drupalcon-github-magic';
     $slack_message['Build URL'] = 'https://circleci.com/gh/populist/drupalcon-github-magic/' . $argv[2];
     _slack_tell( $slack_message, 'drupalcon', $slack_agent, $slack_icon, $slack_color);
     break;
@@ -52,12 +51,13 @@ switch($slack_type) {
     $slack_agent = 'sass';
     $slack_icon = 'http://live-drupalcon-github-magic.pantheonsite.io/sites/default/files/icons/sass.png';
     $slack_color = '#cc6699';
-    $slack_message = 'Running CSS compilation using SASS...';
+    $slack_message = 'Compiling CSS using SASS...';
     _slack_tell( $slack_message, 'drupalcon', $slack_agent, $slack_icon, $slack_color);
     $slack_message = array();
+    $slack_message['SASS Compiler'] = 'https://github.com/sass/sass';
     $slack_message['Theme Directory'] = 'themes/museum';
-    $slack_message['Stylesheet'] = '_custom.style.scss_';
-    $slack_message['Command'] = 'sass custom.style.scss custom.style.css';
+    $slack_message['SASS File'] = '_custom.style.scss_';
+    $slack_message['CSS Stylesheet'] = '_custom.style.css_';
     _slack_tell( $slack_message, 'drupalcon', $slack_agent, $slack_icon, $slack_color);
     break;
   case 'terminus':
@@ -78,10 +78,10 @@ switch($slack_type) {
     $slack_message = "Setting up Pantheon Multidev testing environment...";
     _slack_tell( $slack_message, 'drupalcon', $slack_agent, $slack_icon, $slack_color);
     $slack_message = array();
-    $slack_message['Environment'] = 'ci-test';
-    $slack_message['Site'] = 'drupalcon-github-magic';
+    $slack_message['Environment'] = '`ci-test`';
+    $slack_message['Site'] = '`drupalcon-github-magic`';
     $slack_message['Operation'] = 'terminus build-env:push-code';
-    $slack_message['Environment URL'] = 'https://ci-test-drupalcon-github-magic.pantheonsite.io';
+    $slack_message['Site URL'] = 'https://ci-test-drupalcon-github-magic.pantheonsite.io';
     _slack_tell( $slack_message, 'drupalcon', $slack_agent, $slack_icon, $slack_color);
     break;
   case 'pantheon_dev':
@@ -91,8 +91,8 @@ switch($slack_type) {
     $slack_message = "Setting up Pantheon Dev environment...";
     _slack_tell( $slack_message, 'drupalcon', $slack_agent, $slack_icon, $slack_color);
 		$slack_message = array();
-		$slack_message['Environment'] = 'dev';
-    $slack_message['Site'] = 'drupalcon-github-magic';
+		$slack_message['Environment'] = '`dev`';
+    $slack_message['Site'] = '`drupalcon-github-magic`';
     $slack_message['Operation'] = 'terminus build-env:merge';
     $slack_message['Environment URL'] = 'https://ci-test-drupalcon-github-magic.pantheonsite.io';
     _slack_tell( $slack_message, 'drupalcon', $slack_agent, $slack_icon, $slack_color);

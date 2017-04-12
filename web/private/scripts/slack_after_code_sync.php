@@ -10,7 +10,9 @@ if ( isset( $_POST['wf_type'] ) && $_POST['wf_type'] == 'sync_code' ) {
 
   // Setup the Text
   $message = array();
-  $message['Message'] = '"' . rtrim($commit_message) . '"' . "\n";
-  $message['Details'] = 'Commit _' . rtrim($hash) . '_ to the `' . $_ENV['PANTHEON_ENVIRONMENT'] . '` environment of `' . $_ENV['PANTHEON_SITE_NAME'] . '`' . ' by ' . rtrim($committer) . "\n";
+  $message['Commit Message'] = '"' . rtrim($commit_message) . '"' . "\n";
+  $message['Commit Details'] = 'Commit _' . rtrim($hash) . '_ to the `' . $_ENV['PANTHEON_ENVIRONMENT'] . '` environment.' . "\n";
+  $message['Committed By'] = rtrim($committer) . "\n";
+  $message['Site Name'] = '`' . $_ENV['PANTHEON_SITE_NAME'] . '`' . "\n";
   _slack_tell( $message, 'drupalcon', 'Pantheon Git', 'http://live-drupalcon-github-magic.pantheonsite.io/sites/default/files/icons/git.png', '#666666');
 } 

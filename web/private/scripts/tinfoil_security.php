@@ -17,7 +17,7 @@ $slack_user_icon = 'http://live-drupalcon-github-magic.pantheonsite.io/sites/def
 
 // If we are deploying to test, run a performace test
 if (defined('PANTHEON_ENVIRONMENT') && (PANTHEON_ENVIRONMENT == 'test')) {
-  $message = 'Starting a security scan on the test environment...' . "\n";
+  $message = 'Starting a security scan on the `test` environment...' . "\n";
   _slack_tell($message, $slack_channel_name, $slack_user_name, $slack_user_icon);
   $message = array();
   $message['Test Conditions'] = 'Scanning for _57 known vulnerabilities_ with the *TinFoil Security* platform';
