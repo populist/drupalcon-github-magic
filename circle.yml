@@ -23,7 +23,6 @@ dependencies:
   cache_directories:
     - ~/.composer/cache
     - ~/drupalcon-github-magic/web/themes/museum/node_modules
-    - ~/drupalcon-github-magic/web/themes/museum/bin
   pre:
     # Notify Slack It Is All Happening
     - php -f scripts/slack/slack_notify.php circle "${CIRCLE_BUILD_NUM}"
@@ -36,14 +35,10 @@ dependencies:
     - composer global require -n  "pantheon-systems/terminus:^1"
     - mkdir -p ~/.terminus/plugins
     - composer create-project -n -d ~/.terminus/plugins pantheon-systems/terminus-build-tools-plugin:^1
-    # Setup NPM for SASS Compiling for Theme
+    # Setup Yarn for SASS Compiling for Theme
     - php -f scripts/slack/slack_notify.php gulp
-    # - npm install --prefix web/themes/museum -g bower
-    # - npm install --prefix web/themes/museum -g gulp-cli
-    # - npm install --prefix web/themes/museum gulp -D
-    # - npm install --prefix web/themes/museum 
-    # - bower install --prefix web/themes/museum
-    # - gulp --gulpfile web/themes/museum/gulpfile.js css
+    - yarn global add gulp
+    - gulp --gulpfile web/themes/museum/gulpfile.js css
   post:
     # Run Composer to Build the Asssets
     - php -f scripts/slack/slack_notify.php composer 
