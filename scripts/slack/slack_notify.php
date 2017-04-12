@@ -32,7 +32,7 @@ switch($slack_type) {
     _slack_tell( $slack_message, 'drupalcon', $slack_agent, $slack_icon, $slack_color);
     $slack_message = array();
     $slack_message['Command'] = 'composer -n build-assets';
-    $slack_message['Results'] = '116 installs, 0 updates, 0 removals';
+    $slack_message['Results'] = '121 installs, 0 updates, 0 removals';
     _slack_tell( $slack_message, 'drupalcon', $slack_agent, $slack_icon, $slack_color);
     break;
   case 'circle':
