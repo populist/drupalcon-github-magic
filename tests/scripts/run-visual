@@ -18,8 +18,8 @@ echo
 set -ex
 
 cd tests
-backstop reference
-VISUAL_REGRESSION_RESULTS=$(backstop test)
+backstop reference 
+VISUAL_REGRESSION_RESULTS=$(backstop test || TRUE)
 
 if [[ ${VISUAL_REGRESSION_RESULTS} == *"Mismatch errors found"* ]]
 then
