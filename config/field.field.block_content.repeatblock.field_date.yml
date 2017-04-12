@@ -1,0 +1,21 @@
+uuid: 52404162-db50-4a4d-8ec1-33f5c6505d48
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.repeatblock
+    - field.storage.block_content.field_date
+  module:
+    - datetime
+id: block_content.repeatblock.field_date
+field_name: field_date
+entity_type: block_content
+bundle: repeatblock
+label: date
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

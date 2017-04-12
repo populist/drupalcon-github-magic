@@ -1,0 +1,24 @@
+uuid: f4755921-8096-4637-9350-227575c642b9
+langcode: en
+status: false
+dependencies:
+  config:
+    - views.view.event_view
+  module:
+    - views
+  theme:
+    - museum
+id: views_block__event_view_block_1
+theme: museum
+region: '-1'
+weight: 4
+provider: null
+plugin: 'views_block:event_view-block_1'
+settings:
+  id: 'views_block:event_view-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility: {  }

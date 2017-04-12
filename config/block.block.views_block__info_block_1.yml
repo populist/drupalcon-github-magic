@@ -1,0 +1,24 @@
+uuid: 30a2de13-a6e0-44a2-8192-470d0876c121
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.info
+  module:
+    - views
+  theme:
+    - museum
+id: views_block__info_block_1
+theme: museum
+region: content
+weight: -7
+provider: null
+plugin: 'views_block:info-block_1'
+settings:
+  id: 'views_block:info-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility: {  }

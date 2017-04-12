@@ -1,0 +1,20 @@
+uuid: cc65e27c-b613-47e2-8b5f-b5b87efc18cb
+langcode: en
+status: false
+dependencies:
+  theme:
+    - museum
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: museum_local_actions
+theme: museum
+region: '-1'
+weight: -3
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

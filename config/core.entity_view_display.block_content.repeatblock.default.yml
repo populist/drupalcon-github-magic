@@ -1,0 +1,31 @@
+uuid: 6a7572c1-e11a-4846-b8f2-157348bafb59
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.repeatblock
+    - field.field.block_content.repeatblock.body
+    - field.field.block_content.repeatblock.field_date
+  module:
+    - datetime
+    - text
+id: block_content.repeatblock.default
+targetEntityType: block_content
+bundle: repeatblock
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+  field_date:
+    weight: 1
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+hidden: {  }

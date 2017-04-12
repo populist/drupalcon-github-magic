@@ -1,0 +1,34 @@
+uuid: debb1152-ec05-4c1c-98d1-88b5f0a7216f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.info.body
+    - field.field.node.info.field_image
+    - node.type.info
+  module:
+    - image
+    - text
+    - user
+id: node.info.default
+targetEntityType: node
+bundle: info
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+  field_image:
+    weight: 102
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+  links:
+    weight: 100
+hidden: {  }

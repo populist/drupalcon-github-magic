@@ -1,4 +1,4 @@
-uuid: 00a9cdc4-38ea-4c5f-beae-01e6a1c10bac
+uuid: 662f4c85-e4cf-4c38-add0-6b0be59f8323
 langcode: en
 status: true
 dependencies: {  }
@@ -7,7 +7,7 @@ _core:
 id: feedback
 label: 'Website feedback'
 recipients:
-  - matt@getpantheon.com
+  - noreply@pantheon.io
 reply: ''
 weight: 0
 message: 'Your message has been sent.'

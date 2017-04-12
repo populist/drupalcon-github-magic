@@ -1,0 +1,22 @@
+uuid: 7bcbd52c-39c3-4e8b-b460-b8bc329472a9
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - museum
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: museum_messages
+theme: museum
+region: '-1'
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

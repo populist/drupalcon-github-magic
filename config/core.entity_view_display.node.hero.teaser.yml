@@ -1,0 +1,26 @@
+uuid: 91388308-ce81-4d32-98b3-bf9ac2de3602
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.hero.body
+    - node.type.hero
+  module:
+    - text
+    - user
+id: node.hero.teaser
+targetEntityType: node
+bundle: hero
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+  links:
+    weight: 100
+hidden: {  }

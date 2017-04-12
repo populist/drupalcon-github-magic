@@ -1,0 +1,37 @@
+uuid: c1441997-628c-4ba2-b2ba-504de66836be
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.repeatblock
+    - field.field.block_content.repeatblock.body
+    - field.field.block_content.repeatblock.field_date
+  module:
+    - datetime
+    - text
+id: block_content.repeatblock.default
+targetEntityType: block_content
+bundle: repeatblock
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 3
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+  field_date:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+  info:
+    type: string_textfield
+    weight: -5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

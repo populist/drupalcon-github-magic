@@ -1,0 +1,37 @@
+uuid: ea164dec-fe94-46f1-84df-d8ad1bc86388
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.hero.body
+    - field.field.node.hero.field_image
+    - node.type.hero
+  module:
+    - image_url_formatter
+    - text
+    - user
+id: node.hero.default
+targetEntityType: node
+bundle: hero
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+  field_image:
+    weight: 102
+    label: above
+    settings:
+      url_type: '0'
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image_url
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

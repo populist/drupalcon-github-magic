@@ -1,0 +1,17 @@
+uuid: 1180a449-f2ce-4c7e-8dd0-44dcd86b8d5c
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Info
+type: info
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

@@ -1,0 +1,25 @@
+uuid: 409f3484-706d-4000-9f56-2fd4d3f1f183
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.location.body
+    - node.type.location
+  module:
+    - text
+    - user
+id: node.location.full
+targetEntityType: node
+bundle: location
+mode: full
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+  links:
+    weight: 100
+hidden: {  }

@@ -1,0 +1,22 @@
+uuid: fca2aa14-35e6-4925-9325-f0a0ff78ef1c
+langcode: en
+status: false
+dependencies:
+  theme:
+    - museum
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: museum_local_tasks
+theme: museum
+region: '-1'
+weight: 1
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

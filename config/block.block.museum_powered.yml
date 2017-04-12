@@ -1,0 +1,22 @@
+uuid: cbcd723b-db96-4f27-bb62-e1c21627600b
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - museum
+_core:
+  default_config_hash: jQQUUWN2Uxr5qZtc9zcJKBCxpKY8orN1u2HPqYYRQDI
+id: museum_powered
+theme: museum
+region: '-1'
+weight: -4
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  provider: system
+  label_display: '0'
+visibility: {  }

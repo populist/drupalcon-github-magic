@@ -1,0 +1,25 @@
+uuid: b0ab0b3c-fd0f-4038-9dd3-0c92ebb75dd4
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:a275ad80-519a-4e13-aa1f-84ca3de609b4'
+  module:
+    - block_content
+  theme:
+    - museum
+id: footerblock
+theme: museum
+region: footer
+weight: -10
+provider: null
+plugin: 'block_content:a275ad80-519a-4e13-aa1f-84ca3de609b4'
+settings:
+  id: 'block_content:a275ad80-519a-4e13-aa1f-84ca3de609b4'
+  label: 'Footer Block'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

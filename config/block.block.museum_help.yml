@@ -1,0 +1,22 @@
+uuid: c25bb57a-a161-46ba-929f-fa61d18090bc
+langcode: en
+status: false
+dependencies:
+  module:
+    - help
+  theme:
+    - museum
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: museum_help
+theme: museum
+region: '-1'
+weight: -8
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

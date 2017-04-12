@@ -1,0 +1,25 @@
+uuid: 8ed2f24c-2946-44da-a997-7851947278b6
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:9ac2d334-7781-4a74-98d2-e28edac6e265'
+  module:
+    - block_content
+  theme:
+    - museum
+id: customnav
+theme: museum
+region: content
+weight: -10
+provider: null
+plugin: 'block_content:9ac2d334-7781-4a74-98d2-e28edac6e265'
+settings:
+  id: 'block_content:9ac2d334-7781-4a74-98d2-e28edac6e265'
+  label: 'Custom Nav'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

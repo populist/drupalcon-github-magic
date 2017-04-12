@@ -1,0 +1,20 @@
+uuid: 47b9b850-d062-49e8-bccc-05f231abc367
+langcode: en
+status: false
+dependencies:
+  theme:
+    - museum
+_core:
+  default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
+id: museum_page_title
+theme: museum
+region: '-1'
+weight: -5
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }
