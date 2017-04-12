@@ -1,6 +1,6 @@
 machine:
   node:
-    version: 7.7.3
+    version: 5.5.0
   timezone:
     America/Chicago
   php:
@@ -37,10 +37,10 @@ dependencies:
     - composer global require -n  "pantheon-systems/terminus:^1"
     - mkdir -p ~/.terminus/plugins
     - composer create-project -n -d ~/.terminus/plugins pantheon-systems/terminus-build-tools-plugin:^1
-    # Setup Yarn for SASS Compiling for Theme
-    - php -f scripts/slack/slack_notify.php gulp
-    - yarn global add gulp
-    - gulp --gulpfile web/themes/museum/gulpfile.js css
+    # Setup SASS Compiling for Theme
+    - php -f scripts/slack/slack_notify.php sass
+    - sudo apt-get install ruby-sass
+    - sass web/themes/museum/assets/scss/custom.style.scss web/themes/museum/assets/css/custom.style.css
   post:
     # Run Composer to Build the Asssets
     - php -f scripts/slack/slack_notify.php composer 

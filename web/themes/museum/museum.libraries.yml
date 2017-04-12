@@ -3,6 +3,7 @@ base:
   css:
     theme:
       assets/css/museum.style.css: {}
+      custom.style.css: {}
       bower_components/flexslider/flexslider.css: {}
       //fonts.googleapis.com/css?family=Palanquin+Dark|Montserrat|Chivo|Spinnaker: { type: external }
   js:
