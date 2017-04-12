@@ -15,5 +15,5 @@ if ( isset( $_POST['wf_type'] ) && $_POST['wf_type'] == 'deploy' ) {
   $output['Environment'] = '<http://' . $_ENV['PANTHEON_ENVIRONMENT'] . '-' . $_ENV['PANTHEON_SITE_NAME'] . '.pantheon.io|' . $_ENV['PANTHEON_ENVIRONMENT'] . '>';
   $output['Deployed By'] = $_POST['user_email'];
   $output['Site Name'] = $_ENV['PANTHEON_SITE_NAME'];
-	_slack_tell( $output, 'drupalcon', 'Pantheon Deployment', 'http://live-wp-quicksilver-demo.pantheonsite.io/wp-content/uploads/icons/pantheon.png', '#EFD01B');
+	_slack_tell( $output, 'drupalcon', 'Pantheon Deployment', 'http://live-drupalcon-github-magic.pantheonsite.io/sites/default/files/icons/pantheon.png', '#EFD01B');
 }

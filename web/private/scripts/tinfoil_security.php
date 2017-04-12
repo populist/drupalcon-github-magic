@@ -13,7 +13,7 @@ $secret_key = $secrets['tinfoil_secret_key'];
 $test_site_name = 'drupalcon-github-magic';
 $slack_channel_name = 'drupalcon';
 $slack_user_name = 'SecurityTesting-with-TinFoil';
-$slack_user_icon = 'http://live-drupalcon-nola-demo.pantheonsite.io/sites/default/files/icons/tinfoil.png';
+$slack_user_icon = 'http://live-drupalcon-github-magic.pantheonsite.io/sites/default/files/icons/tinfoil.png';
 
 // If we are deploying to test, run a performace test
 if (defined('PANTHEON_ENVIRONMENT') && (PANTHEON_ENVIRONMENT == 'test')) {

@@ -12,5 +12,5 @@ if ( isset( $_POST['wf_type'] ) && $_POST['wf_type'] == 'sync_code' ) {
   $message = array();
   $message['Message'] = '"' . rtrim($commit_message) . '"' . "\n";
   $message['Details'] = 'Commit _' . rtrim($hash) . '_ to the `' . $_ENV['PANTHEON_ENVIRONMENT'] . '` environment of `' . $_ENV['PANTHEON_SITE_NAME'] . '`' . ' by ' . rtrim($committer) . "\n";
-  _slack_tell( $message, 'drupalcon', 'Pantheon Git', 'http://live-wp-quicksilver-demo.pantheonsite.io/wp-content/uploads/icons/git.png', '#666666');
+  _slack_tell( $message, 'drupalcon', 'Pantheon Git', 'http://live-drupalcon-github-magic.pantheonsite.io/sites/default/files/icons/git.png', '#666666');
 } 

@@ -12,7 +12,7 @@ $api_key = $secrets['loader_api_key'];
 $test_id = 'a747d3fa27c22fffeee4739c8a9e3709';
 $slack_channel_name = 'drupalcon';
 $slack_user_name = 'PerformanceTesting-with-LoaderIO';
-$slack_user_icon = 'http://live-drupalcon-nola-demo.pantheonsite.io/sites/default/files/icons/loaderio.png';
+$slack_user_icon = 'http://live-drupalcon-github-magic.pantheonsite.io/sites/default/files/icons/loaderio.png';
 
 // If we are deploying to test, run a performace test
 if (defined('PANTHEON_ENVIRONMENT') && (PANTHEON_ENVIRONMENT == 'test')) {
