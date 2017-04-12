@@ -15,6 +15,7 @@ if (count($output) > 0) {
   $output = implode($output, "\n");
   $output = rtrim($output);
   exec('drush cache-rebuild');
+  $output = array($output);
 } else {
   $output = array('No new configuration to import.');
 }
