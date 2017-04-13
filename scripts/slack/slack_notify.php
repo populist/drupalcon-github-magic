@@ -11,7 +11,7 @@ switch($slack_type) {
     $slack_agent = 'BackstopJS Visual Regression';
     $slack_icon = 'http://live-drupalcon-github-magic.pantheonsite.io/sites/default/files/icons/backstop.png';
     $slack_color = '#800080';
-    $slack_message = array('No Visual Differences Detected!');
+    $slack_message = 'No Visual Differences Detected!';
     _slack_tell( $slack_message, 'drupalcon', $slack_agent, $slack_icon, $slack_color); 
     break;
   case 'visualregression_finished_differences':
@@ -31,14 +31,14 @@ switch($slack_type) {
     $slack_agent = 'BackstopJS Visual Regression';
     $slack_icon = 'http://live-drupalcon-github-magic.pantheonsite.io/sites/default/files/icons/backstop.png';
     $slack_color = '#800080';
-    $slack_message = array('Visual Differences Detected! ' . $curl_response->data->thumb_url);
+    $slack_message = 'Visual Differences Detected! ' . $curl_response->data->thumb_url;
     _slack_tell( $slack_message, 'drupalcon', $slack_agent, $slack_icon, $slack_color);
     break;
   case 'visualregression':
     $slack_agent = 'BackstopJS Visual Regression';
     $slack_icon = 'http://live-drupalcon-github-magic.pantheonsite.io/sites/default/files/icons/backstop.png';
     $slack_color = '#800080';
-    $slack_message = 'Kicking off a Visual Regression test using BackstopJS between the `ci-test` and `live` environments...';
+    $slack_message = array('Kicking off a Visual Regression test using BackstopJS between the `ci-test` and `live` environments...');
     _slack_tell( $slack_message, 'drupalcon', $slack_agent, $slack_icon, $slack_color); 
     break;
   case 'behat': 

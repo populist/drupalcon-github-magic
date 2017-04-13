@@ -14,9 +14,9 @@ if (count($output) > 0) {
   $output = str_replace(' delete', ' [delete]', $output);
   $output = implode($output, "\n");
   $output = rtrim($output);
-  exec('drush cache-rebuild');
   $output = array($output);
 } else {
   $output = array('No new configuration to import.');
 }
+exec('drush cache-rebuild');
 _slack_tell($output, 'drupalcon', 'Drush-on-Pantheon', 'http://live-drupalcon-github-magic.pantheonsite.io/sites/default/files/icons/drush.png', '#A9A9A9');
