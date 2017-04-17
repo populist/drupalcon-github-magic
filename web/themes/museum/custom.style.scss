@@ -1,19 +1,23 @@
-$navbar-color: blue;
-$navbar-highlight: darken($navbar-color, 10%);
+$brand-color: blue;
+$brand-highlight: darken($brand-color, 10%);
 
 .block-content--customnav {
-  background-color: $navbar-color;
+  background-color: $brand-color;
 }
 
 .navlogo {
-  background-color: $navbar-color;
-  border-right: 1px solid $navbar-highlight;
+  background-color: $brand-color;
+  border-right: 1px solid $brand-highlight;
 }
 
 .block-content--customnav ul.navtop {
-  border-bottom: 1px solid $navbar-highlight;
+  border-bottom: 1px solid $brand-highlight;
 }
 
 .cta {
-  background-color: $navbar-color;
+  background-color: $brand-color;
+}
+
+a {
+  color: $brand-color;
 }
