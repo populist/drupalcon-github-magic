@@ -35,6 +35,18 @@
             "endpoint": "4d4e86f2-2d1f-4c65-ab3f-7ed352ed86ce",
             "type": "codeserver",
             "slave_of": null
+        },
+        {
+            "id": "9f274bd2",
+            "endpoint": "dc3b85f5-c11d-4334-b7c8-1757adae48a3",
+            "type": "cacheserver",
+            "slave_of": null
+        },
+        {
+            "id": "ad2c1b2c",
+            "endpoint": "ae97de77-ea65-4e5d-9834-bc79071a12d9",
+            "type": "indexserver",
+            "slave_of": null
         }
     ]
 }

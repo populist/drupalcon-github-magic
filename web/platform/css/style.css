@@ -6,30 +6,37 @@ html, body {
 }
 
 body{
-  background: #E9EDED;
+  background: 	#808080;/*#E9EDED;b0bfbf*/
 }
 
 h1, h2, h3, h4, h5, h6, p, span, a{
   font-family: 'Open Sans', Helvetica, sans-serif;
 }
 
-#internet h4, #diagramContainer h4{
+#internet h4, #diagramContainer h4, #edge h4{
   display: inline;
   position: absolute;
-  color: #B5C0C3;
+  /*color: #B5C0C3;*/
   width: auto;
   margin: 30px 0 0 20px;
 }
 
 #diagramContainer h4{
-  top: 200px;
+  top: 300px;
 }
 
 .ember-application {
   margin:0;
   padding: 0;
 }
-
+#edge {
+  background: #BBBCBC;
+  padding: 20px 0;
+  overflow: hidden;
+}
+#pops .circleIcon {
+  padding:0;
+}
 #internet{
   background:#F5F8F8;
   padding: 20px 0;
@@ -44,7 +51,10 @@ h1, h2, h3, h4, h5, h6, p, span, a{
   display:table;
   margin: 0 auto;
 }
-
+#pops {
+display: table;
+margin: 0 auto;
+}
 .circleIcon{
   display:table-cell;
   text-align: center;
