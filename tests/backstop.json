@@ -10,8 +10,8 @@
   "scenarios": [
     {
       "label": "Homepage JS Test",
-      "url": "http://ci-test-drupalcon-github-magic.pantheonsite.io/",
-      "referenceUrl": "http://live-drupalcon-github-magic.pantheonsite.io/",
+      "url": "https://ci-test-drupalcon-github-magic.pantheonsite.io/",
+      "referenceUrl": "https://live-drupalcon-github-magic.pantheonsite.io/",
       "selectors": ["document"],
       "hideSelectors": [],
       "readyEvent": null,
