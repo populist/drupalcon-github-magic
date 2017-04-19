@@ -94,7 +94,7 @@ switch($slack_type) {
     break;
   case 'terminus':
     $slack_agent = 'Terminus';
-    $slack_icon = 'http://live-drupalcon-github-magic.pantheonsite.io/sites/default/files/icons/terminus.png';
+    $slack_icon = 'http://live-drupalcon-github-magic.pantheonsite.io/sites/default/files/icons/terminus2.png';
     $slack_color = '#1ec503';
     $slack_message = "Authenticating to Pantheon with Terminus machine token...";
     _slack_tell( $slack_message, 'drupalcon', $slack_agent, $slack_icon, $slack_color);
@@ -105,7 +105,7 @@ switch($slack_type) {
     break;
   case 'pantheon_multidev':
     $slack_agent = 'Terminus';
-    $slack_icon = 'http://live-drupalcon-github-magic.pantheonsite.io/sites/default/files/icons/terminus.png';
+    $slack_icon = 'http://live-drupalcon-github-magic.pantheonsite.io/sites/default/files/icons/terminus2.png';
     $slack_color = '#1ec503';
     $slack_message = "Setting up Pantheon Multidev `ci-test` as the testing environment...";
     _slack_tell( $slack_message, 'drupalcon', $slack_agent, $slack_icon, $slack_color);
@@ -116,7 +116,7 @@ switch($slack_type) {
     break;
   case 'pantheon_dev':
     $slack_agent = 'Terminus';
-    $slack_icon = 'http://live-drupalcon-github-magic.pantheonsite.io/sites/default/files/icons/terminus.png';
+    $slack_icon = 'http://live-drupalcon-github-magic.pantheonsite.io/sites/default/files/icons/terminus2.png';
     $slack_color = '#1ec503';
     $slack_message = "Setting up Pantheon `dev` environment...";
     _slack_tell( $slack_message, 'drupalcon', $slack_agent, $slack_icon, $slack_color);
