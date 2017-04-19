@@ -21,7 +21,7 @@ machine:
 
 dependencies:
   cache_directories:
-    - ~/.composer/cache
+    - ~/.composer
     - /opt/circleci/nodejs/v5.5.0/lib/node_modules
     - /opt/circleci/nodejs/v5.5.0/bin
   pre:
