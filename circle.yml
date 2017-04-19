@@ -44,9 +44,9 @@ dependencies:
     - npm install -g backstopjs
     - npm install -g slimerjs
   post:
-    # Run Composer to Build the Asssets
+    # Run Composer to Build the Site Components
     - php -f scripts/slack/slack_notify.php composer 
-    - composer -n build-assets
+    - composer -n install 
     # Login with Terminus
     - php -f scripts/slack/slack_notify.php terminus 
     - terminus auth:login -n --machine-token="$TERMINUS_TOKEN"
