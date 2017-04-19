@@ -1,0 +1,100 @@
+{
+    "servers": [
+        {
+            "id": "AAAAAAAA",
+            "type": "edgeserver",
+            "endpoint": "edge1",
+            "slave_of": null
+        },
+        {
+            "id": "925e7577",
+            "endpoint": "5aadf118-609f-4b81-8a53-05402afb1958",
+            "type": "appserver",
+            "slave_of": null
+        },
+        {
+            "id": "15455671",
+            "endpoint": "a143403b-5258-40fa-9bb1-2fc945411fd3",
+            "type": "slavedbserver",
+            "slave_of": "ee63189cb21e4282913245150067377e"
+        },
+        {
+            "id": "a7acee1f",
+            "endpoint": "2e9c97ee-4a90-48c4-ac3c-68d93a46aa19",
+            "type": "appserver",
+            "slave_of": null
+        },
+        {
+            "id": "20fff1ee",
+            "endpoint": null,
+            "type": "newrelic",
+            "slave_of": null
+        },
+        {
+            "id": "90ea0d97",
+            "endpoint": "8fcefc92-b32e-479f-b981-2fd1c56d1f3d",
+            "type": "appserver",
+            "slave_of": null
+        },
+        {
+            "id": "4b95e834",
+            "endpoint": null,
+            "type": "fileserver",
+            "slave_of": null
+        },
+        {
+            "id": "8f3dd851",
+            "endpoint": "f52710bc-99ef-47ba-81fd-a82b34f35db7",
+            "type": "appserver",
+            "slave_of": null
+        },
+        {
+            "id": "8f3dd852",
+            "endpoint": "f52710bc-99ef-47ba-81fd-a82b34f35db7",
+            "type": "appserver",
+            "slave_of": null
+        },
+        {
+            "id": "8f3dd853",
+            "endpoint": "f52710bc-99ef-47ba-81fd-a82b34f35db7",
+            "type": "appserver",
+            "slave_of": null
+        },
+        {
+            "id": "8f3dd854",
+            "endpoint": "f52710bc-99ef-47ba-81fd-a82b34f35db7",
+            "type": "appserver",
+            "slave_of": null
+        },
+        {
+            "id": "8f3dd855",
+            "endpoint": "f52710bc-99ef-47ba-81fd-a82b34f35db7",
+            "type": "appserver",
+            "slave_of": null
+        },
+        {
+            "id": "9f274bd2",
+            "endpoint": "dc3b85f5-c11d-4334-b7c8-1757adae48a3",
+            "type": "cacheserver",
+            "slave_of": null
+        },
+        {
+            "id": "ee63189c",
+            "endpoint": "e065141a-12fc-4d68-87d2-9ca00a36742d",
+            "type": "dbserver",
+            "slave_of": null
+        },
+        {
+            "id": "ad32c423",
+            "endpoint": "4d4e86f2-2d1f-4c65-ab3f-7ed352ed86ce",
+            "type": "codeserver",
+            "slave_of": null
+        },
+        {
+            "id": "ad2c1b2c",
+            "endpoint": "ae97de77-ea65-4e5d-9834-bc79071a12d9",
+            "type": "indexserver",
+            "slave_of": null
+        }
+    ]
+}

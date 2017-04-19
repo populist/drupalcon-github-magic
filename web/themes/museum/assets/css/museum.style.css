@@ -8949,14 +8949,14 @@ border-bottom: 1px solid #cd0027;
 .navlogo {
   position: absolute;
   background-color: #e4002b;
-  height: 100px;
+  height: 99px;
   width: 120px;
   top: 0;
   border-right: 1px solid #cd0027;
 }
 .navlogo img {
   width: 75%;
-  padding: 16px 1px 1px 14px;
+  padding: 14px 1px 1px 14px;
 
 }
 .block-content--customnav .basic__body {

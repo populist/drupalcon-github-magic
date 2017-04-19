@@ -29,6 +29,3 @@ workflows:
       - type: webphp
         description: Performance Testing with Loader.IO
         script: private/scripts/loaderio_performance.php
-      - type: webphp
-        description: Security Scanning with TinFoil Security
-        script: private/scripts/tinfoil_security.php

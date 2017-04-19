@@ -5,7 +5,7 @@ var maxWidth = 1200;
 var install_dir = "platform/";
 
 var _marketing = {
-    'edgeserver'   :["Pantheon Global Edge", "The exterior of Pantheon — the part that directly touches the public internet. The Global Edge has a built-in, ultra-fast cache that's automatically enabled for every site. It improves page load times for our customers and helps sites to cruise through viral traffic spikes without breaking a sweat."],
+    'edgeserver'   :["Pantheon Edge", "The exterior of Pantheon — the part that directly touches the public internet. The Edge has a built-in, ultra-fast cache that's automatically enabled for every site. It improves page load times for our customers and helps sites to cruise through viral traffic spikes without breaking a sweat."],
     'appserver'    :["Application Container", "The essence of a runtime container is a highly tuned PHP-FPM worker and its connections to the outside world. Incoming requests come via an nginx web server which handles requests for static assets, and passes dynamic requests to PHP."],
     'dbserver'     :["Database Server","The Database Service uses MariaDB and a container architecture similar to the Runtime Matrix to provision DBs and perform workflow operations. Instead of scaling via load-balancing, the DB layer can provide redundancy and horizontal scalability by supporting a self-healing replication topology, which is managed automatically."],
     'slavedbserver':["Failover Database Server(Slave)","The Database Service uses MariaDB and a container architecture similar to the Runtime Matrix to provision DBs and perform workflow operations. Instead of scaling via load-balancing, the DB layer can provide redundancy and horizontal scalability by supporting a self-healing replication topology, which is managed automatically."],
@@ -38,6 +38,9 @@ App.DiagramRoute = Ember.Route.extend({
       //load the hard coded site plans
       if(App.env == 'elite'){
         target = install_dir + "data/elite.json";
+      }
+      else if(App.env == 'elitemax'){
+        target = install_dir + "data/elitemax.json";
       }
       else if(App.env == 'business'){
         target = install_dir + "data/business.json";
