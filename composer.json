@@ -24,7 +24,8 @@
     "drupal/radix": "^3.1",
     "drupal/entity_reference_revisions": "^1.2",
     "drupal/image_url_formatter": "^1.0@beta",
-    "drupal/paragraphs": "^1.1"
+    "drupal/paragraphs": "^1.1",
+    "drupal/fullcalendar": "^1.0@alpha"
   },
   "require-dev": {
     "mikey179/vfsstream": "^1.2",
