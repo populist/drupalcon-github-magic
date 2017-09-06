@@ -1411,16 +1411,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "8.2.6",
+            "version": "8.2.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "6cd5d296125a4584d470d75d8e5218ff17c39c22"
+                "reference": "7ccc248f4058dd5985ad0c61c129243d0d2b58b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/6cd5d296125a4584d470d75d8e5218ff17c39c22",
-                "reference": "6cd5d296125a4584d470d75d8e5218ff17c39c22",
+                "url": "https://api.github.com/repos/drupal/core/zipball/7ccc248f4058dd5985ad0c61c129243d0d2b58b8",
+                "reference": "7ccc248f4058dd5985ad0c61c129243d0d2b58b8",
                 "shasum": ""
             },
             "require": {
@@ -1559,7 +1559,7 @@
                 "jcalderonzumba/gastonjs": "~1.0.2",
                 "jcalderonzumba/mink-phantomjs-driver": "~0.3.1",
                 "mikey179/vfsstream": "~1.2",
-                "phpunit/phpunit": "~4.8",
+                "phpunit/phpunit": ">=4.8.28 <5",
                 "symfony/css-selector": "~2.8"
             },
             "type": "drupal-core",
@@ -1584,7 +1584,7 @@
                 "GPL-2.0+"
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
-            "time": "2017-02-01T17:03:36+00:00"
+            "time": "2017-04-19T16:45:52+00:00"
         },
         {
             "name": "drupal/entity_reference_revisions",
@@ -1651,7 +1651,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/fullcalendar-8.x-1.0-alpha2.zip",
-                "reference": null,
+                "reference": "8.x-1.0-alpha2",
                 "shasum": "76fda439854bebddf32424740f0e4b02e7d82110"
             },
             "require": {
